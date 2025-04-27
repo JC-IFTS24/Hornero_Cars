@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f7f7f7;
+}
+
+:root { /*Colores base para la pagina web guardados en variable para asi no tener que buscarlos luego (pueden cambiarlos)*/
+    --primary-color: #5784c7;
+    --secondary-color: #195c7d;
+}
+
+/*HEADER-------------------------------------------------------------------------------------------*/
+
+/*--NAV-------------------------------------------------------------------*/
+
+nav {
+    z-index: 1000; /* El z index sirve para seleccionar cual etiqueta se visualiza por delante, 
+                        el que tiene mas es el que se visualiza */
+    
+    
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-rows: 120px;
+    justify-content: center;
+    justify-items: center;
+    list-style-type: none;
+    padding: 0;
+    background-image: linear-gradient(to bottom right, rgba(213, 229, 238, 0.9), rgba(162, 227, 247, 0.444));
+}
+
+#imagen_Logo{
+    overflow: hidden;
+}
+
+nav ul li {
+    padding: 10px;
+    text-align: center;
+    line-height: 100px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    white-space: nowrap;
+    font-size: 1.5em;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+    
+}
+
+nav ul li a:active {
+    color: #26027a;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown_Contentenido {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    animation: fadeInDown 0.9s ease forwards; /* Agregar animación de desplazamiento */
+}
+
+@keyframes fadeInDown { /* Esto es la velocidad en que aparecen los dorpdown al pasar el cursor */
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* Desplazamiento inicial hacia arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Desplazamiento hacia abajo */
+    }
+}
+
+.show-dropdown .dropdown_Contentenido {
+    display: block;
+}
+
+.dropdown_Contentenido a {
+    color:var(--secondary-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown_Contentenido a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown_Contentenido {
+    display: block;
+}
+
+
+.dropbtn{
+    background-color:#29abe2;
+    color: #ffffff;
+    border: 1px solid #02577a;
+}
+
+.sesion {
+    color: rgb(0, 18, 69);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.sesion:hover {
+    color: darkred;
+}
+
+/*-- MODAL ----------------------------------------------------------*/
+
+
+
+/*--FOOTER  ----------------------------------------------------------------------------------------------*/
+
+
+/* Media query para hacer el menú responsive en pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding-top: 20px;
+    }
+
+    nav ul li {
+        padding: 5px;
+        line-height: normal;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+
+    .sesion {
+        font-size: 1.2em;
+    }
+
+    .dropdown_Contentenido {
+        pointer-events: none; /* Desactiva la interacción con los dropdowns */
+    }
+}
+
+
+/* Media query para pantallas medianas */
+/* Media query para hacer el nav vertical en pantallas medianas */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    
+    header {
+        position: relative; /* Asegura que el header sea el contexto de posicionamiento */
+    }
+
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px; /* Ancho del menú de navegación */
+        max-height: calc(100vh - 85px - 50px); /* Limita la altura del menú al 100% de la altura de la pantalla menos la altura del header y del footer */
+        overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido del menú es demasiado largo */
+        overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    }
+
+    nav:hover {
+        overflow-y:auto; /* Muestra la barra de desplazamiento vertical al pasar el ratón */
+    }
+    
+   
+
+    ul {
+        margin-top: 0%;
+    }
+    
+       nav ul li:nth-child(1) {
+          order: 1; /* Cambia el orden del primer elemento */
+        }
+        
+       nav ul li:nth-child(2) {
+          order: 6; /* Cambia el orden del segundo elemento */
+        }
+        
+       nav ul li:nth-child(3) {
+          order: 5; /* Cambia el orden del tercer elemento */
+        }
+        
+       nav ul li:nth-child(4) {
+          order: 3; /* Cambia el orden del cuarto elemento */
+        }
+       nav ul li:nth-child(5) {
+            order: 4; /* Cambia el orden del cuarto elemento */
+          }
+
+          nav ul li:nth-child(6) {
+            order: 2; /* Cambia el orden del cuarto elemento */
+          }
+
+          .dropdown_Contentenido {
+            pointer-events: none; /* Desactiva la interacción con los dropdowns */
+        }
+        
+          }
