@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifas y Ofertas con Grid (Todo en uno)</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f6; /* Fondo suave */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c3e50; /* Azul oscuro */
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #3498db; /* Azul claro al pasar el mouse */
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px; /* Limita el ancho del contenido principal */
+            margin: 20px auto; /* Centra el contenido principal en la página */
+        }
+
+        main h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        main h2::after { /* Pequeña línea decorativa debajo de los títulos */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+
+        /* Contenedor Grid para las tarjetas */
+        .contenedor-tarjetas {
+            display: grid; /* Habilitamos CSS Grid */
+            /* Define las columnas de la rejilla:
+               - repeat(auto-fit, ...): Crea tantas columnas como quepan.
+               - minmax(280px, 1fr): Cada columna tendrá un mínimo de 280px
+                                     y un máximo de 1 fracción del espacio disponible.
+                                     Esto hace que las tarjetas se adapten y se
+                                     ajusten a la siguiente línea si no hay espacio.
+            */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; /* Espacio entre las tarjetas (tanto horizontal como vertical) */
+            padding: 20px 0; /* Espacio vertical alrededor del grupo de tarjetas */
+            justify-items: center; /* Centra las tarjetas si no ocupan todo el ancho de su celda */
+        }
+
+        /* Estilos para cada tarjeta individual */
+        .tarjeta {
+            background-color: white;
+            border-radius: 12px; /* Bordes más redondeados */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+            display: flex; /* Usamos Flexbox dentro de la tarjeta para organizar el contenido */
+            flex-direction: column; /* Apila el contenido verticalmente */
+            align-items: center; /* Centra horizontalmente el contenido dentro de la tarjeta */
+            justify-content: space-between; /* Distribuye el espacio entre los elementos */
+            min-height: 350px; /* Asegura una altura mínima para las tarjetas (ajusta si es necesario) */
+            box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Sombra más intensa al pasar el mouse */
+        }
+
+        .tarjeta img {
+            max-width: 100px; /* Tamaño de la imagen */
+            height: auto;
+            border-radius: 50%; /* Para hacer las imágenes redondas */
+            margin-bottom: 20px;
+            border: 3px solid #3498db; /* Borde de color alrededor de la imagen */
+            padding: 5px;
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+        }
+
+        .tarjeta h3 {
+            color: #34495e; /* Color de título */
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta p {
+            font-size: 1rem;
+            color: #555;
+            flex-grow: 1; /* Permite que el párrafo ocupe el espacio restante, empujando el botón hacia abajo */
+            margin-bottom: 20px;
+        }
+
+        .tarjeta button {
+            background-color: #3498db; /* Color del botón */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px; /* Botones más redondeados (tipo píldora) */
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: auto; /* Empuja el botón al final si hay espacio */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .tarjeta button:hover {
+            background-color: #2980b9; /* Color del botón al pasar el mouse */
+            transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 50px;
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 768px) {
+            main h2 {
+                font-size: 2rem;
+            }
+
+            .contenedor-tarjetas {
+                gap: 20px; /* Reduce el espacio entre tarjetas en pantallas medianas */
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            main h2 {
+                font-size: 1.8rem;
+            }
+
+            .contenedor-tarjetas {
+                grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+                padding: 10px;
+            }
+
+            .tarjeta {
+                min-height: auto; /* Desactiva la altura mínima para que se ajuste al contenido */
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column; /* Apila los elementos de navegación */
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mi Sitio Web</h1>
+        <nav>
+            <ul>
+                <li><a href="#tarifas-seccion">Tarifas</a></li>
+                <li><a href="#ofertas-seccion">Ofertas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="tarifas-seccion">Tarifas</h2>
+        <section class="contenedor-tarjetas">
+            <div class="tarjeta tarifa-plana">
+                <img src="https://placehold.co/150x150/007bff/ffffff?text=Básica" alt="Imagen Tarifa Plana Básica">
+                <h3>Tarifa Básica</h3>
+                <p>Ideal para empezar. Incluye acceso a funciones esenciales y soporte básico.</p>
+                <button>Ver Detalles</button>
+            </div>
+            <div class="tarjeta tarifa-plana">
+                <img src="https://placehold.co/150x150/28a745/ffffff?text=Premium" alt="Imagen Tarifa Plana Premium">
+                <h3>Tarifa Premium</h3>
+                <p>Más beneficios para los más exigentes. Funciones avanzadas y soporte prioritario.</p>
+                <button>Ver Detalles</button>
+            </div>
+            <div class="tarjeta tarifa-plana">
+                <img src="https://placehold.co/150x150/dc3545/ffffff?text=Pro" alt="Imagen Tarifa Plana Pro">
+                <h3>Tarifa Pro</h3>
+                <p>Solución completa para profesionales. Todas las funciones y soporte 24/7.</p>
+                <button>Ver Detalles</button>
+            </div>
+        </section>
+
+        <h2 id="ofertas-seccion">Ofertas</h2>
+        <section class="contenedor-tarjetas">
+            <div class="tarjeta oferta-especial">
+                <img src="https://placehold.co/150x150/ffc107/000000?text=Invierno" alt="Imagen Oferta de Invierno">
+                <h3>Oferta Invierno</h3>
+                <p>2x1 en servicios seleccionados. Válido hasta fin de mes. ¡No te lo pierdas!</p>
+                <button>Aprovechar</button>
+            </div>
+            <div class="tarjeta oferta-especial">
+                <img src="https://placehold.co/150x150/6f42c1/ffffff?text=Nuevo+Cliente" alt="Imagen Oferta Nuevo Cliente">
+                <h3>Nuevo Cliente</h3>
+                <p>15% de descuento en tu primera compra. ¡Regístrate ahora y ahorra!</p>
+                <button>Registrarse</button>
+            </div>
+            <div class="tarjeta oferta-especial">
+                <img src="https://placehold.co/150x150/fd7e14/ffffff?text=Flash" alt="Imagen Oferta Flash">
+                <h3>Oferta Flash</h3>
+                <p>Descuentos relámpago por tiempo limitado. ¡Corre antes de que se agote!</p>
+                <button>Comprar Ahora</button>
+            </div>
+            <div class="tarjeta oferta-especial">
+                <img src="https://placehold.co/150x150/17a2b8/ffffff?text=Combo" alt="Imagen Combo Especial">
+                <h3>Combo Especial</h3>
+                <p>Servicio A + Servicio B por un precio único. ¡La mejor combinación!</p>
+                <button>Ver Combo</button>
+            </div>
+        </section>
+    </main>
+    </body>
+</html>
