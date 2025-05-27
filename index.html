@@ -14,17 +14,18 @@
             <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
                 <li id="imagen_Logo">
                     <a href="index.html" >
-                        <img src="" height="110" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
+                        <img src="static/img/Logo.png" height="110" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
                     </a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="nosotros">
                     <a href="templates/nosotros.html">Nosotros</a>
-                    <div class="dropdown_Contenido">
+                    <div class="dropdown_Contenido" id="drop_nosotros">
                         <a href="templates/nosotros.html#nosotros">Sobre "Horneros Cars"</a>
                         <a href="templates/nosotros.html#oficinas">Oficinas</a>
                         <a href="templates/nosotros.html#contacto">Contacto</a>
                     </div>
-                <li class="dropdown" >
+                </li>
+                <li class="dropdown" id="informacion">
                     <a href="templates/informacion.html">Información</a>
                     <div class="dropdown_Contenido">
                         <a href="templates/informacion.html#vehiculos">Vehiculos</a>
@@ -32,15 +33,13 @@
                         <a href="templates/informacion.html#requisitos">Requisitos</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="reserva">
                     <a href="templates/reserva.html">Hace tu reserva</a>
                 </li>
                 <!--Li vacio para poder jugar con el espacio en distintas medidas con display:none-->
-                <li class="dropdown"> 
-                    <a href=""></a>
-                </li>
+              
                 <!--MODAL link a js-->
-                <li class="dropdown">
+                <li class="dropdown" id="sesion">
                     <a href="" class="sesion">Iniciar Sesion</a>
                </li>
             </ul>

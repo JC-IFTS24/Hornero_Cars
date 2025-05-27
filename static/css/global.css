@@ -10,8 +10,9 @@ body{
 }
 
 :root { /* :root es el selector del elemento raíz (html). */
-    --primary-color: #5784c7;/*Colores base para la pagina web guardados en variable */
-    --secondary-color: #195c7d; /* Estas variables se pueden reutilizar con var(--primary-color). */
+    --primary-color: #bf8850;/*Colores base para la pagina web guardados en variable */
+    --secondary-color: #5b300e; /* Estas variables se pueden reutilizar con var(--primary-color). */
+    --tercer-color: #3c2106;
 }
 
 /*HEADER--------------------------------------------------------------------------------------------*/
@@ -23,40 +24,71 @@ nav {
                         el que tiene mas es el que se visualiza.
                          Z-INDEX: 1000 Define un nivel de apilamiento alto para que la barra 
                          esté por encima de otros elementos si se superponen.*/
-    
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+background-color: #222222;
+
     
 }
 
 nav ul {
     display: grid; /* convierte la lista en una grilla. */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));  /* crea columnas flexibles de al menos 120px. */
+    grid-template-columns: repeat(6, 1fr);  /* crea columnas flexibles de al menos 120px. */
     grid-template-rows: 120px; /* fija una altura de 120px para la fila. */
     justify-content: center; /* centra la grilla horizontalmente. */
     justify-items: center; /* centra el contenido dentro de cada celda. */
     list-style-type: none; /* elimina los puntos de las listas. */
     padding: 0; /* elimina el espaciado interior. */
-    background-image: linear-gradient(to bottom right, rgba(213, 229, 238, 0.9), rgba(162, 227, 247, 0.444));
+    
 }                       /* aplica un degradado suave como fondo de la barra. */
 
 #imagen_Logo{
     overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor del logo. */
+    grid-column: 1/2;
 }
+
+
+
+#nosotros{
+    grid-column: 2/3;
+}
+
+#informacion{
+    grid-column: 3/4;
+}
+
+#reserva{
+    grid-column: 4/5;
+}
+
+#vacio{
+    grid-column: 5/6;
+}
+
+#sesion{
+    grid-column: 6/7;
+}
+
+
 
 nav ul li {
     padding: 10px; /* agrega espacio alrededor de los elementos. */
     text-align: center; /* centra el texto horizontalmente. */
     line-height: 100px; /*configura el tamaño del texto verticalmente en 100px de alto. */
+     width: 100%;
 }
 
 nav ul li a {
     text-decoration: none; /* elimina el subrayado de los enlaces. */
-    color: var(--primary-color); /* usa el color primario definido antes. */
+    color: #ffffff; /* usa el color primario definido antes. */
     white-space: nowrap; /* evita que el texto se divida en varias líneas. */
     font-size: 1.5em; /* agranda el texto (1.5 veces el tamaño base). */
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: var(--secondary-color); /* Cambia el color del enlace al pasar el mouse (hover). */
+     color: #f78e34; /* Cambia el color del enlace al pasar el mouse (hover). */
     
 }
 
@@ -69,10 +101,14 @@ nav ul li a:active {
     display: inline-block; /* inline-block: permite que el contenedor se ajuste a su contenido, pero se comporte como bloque. */
 }
 
+
+
 .dropdown_Contenido {
     display: none; /* Oculta el elemento por defecto. La idea es que este menú solo se muestre cuando se active la clase show-dropdown. */
     position: absolute; /* Coloca el menú en una posición absoluta con respecto al primer elemento padre con posición relativa. */
-    background-color: #f9f9f9; /* Establece el color de fondo del dropdown */
+     background-color: #333333; /* Establece el color de fondo del dropdown */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    border-radius: 4px;
     min-width: 160px; /* Define un ancho mínimo de 160 píxeles para el dropdown. */
     z-index: 1000; /* Define el índice de apilamiento, asegura que el dropdown se muestre por encima de elementos con un índice menor */
     top: 100%; /* Coloca el dropdown justo debajo del contenedor del elemento que lo activa. */
@@ -94,23 +130,24 @@ nav ul li a:active {
     }
 }
 
-.show-dropdown .dropdown_Contenido {
-    display: block;  /* Hace que el menú se muestre como un bloque (es decir, visible) */
-}
-
 .dropdown_Contenido a {
-    color:var(--secondary-color); /* Aplica el color de texto definido en una variable */
+    color: #ffffff;
+    transition: background-color 0.3s; /* Aplica el color de texto definido en una variable */
     padding: 12px 16px; /* Aplica un padding de 12 píxeles en el eje vertical y 16 píxeles en el eje horizontal */
     text-decoration: none; /* Elimina el subrayado por defecto de los enlaces. */
     display: block; /*  Hace que los enlaces se comporten como bloques, ocupando toda la línea. */
+
 }
 
 .dropdown_Contenido a:hover {
-    background-color: #f1f1f1; /* Cambia el color de fondo del enlace a un gris claro cuando el cursor pasa sobre él. */
+    background-color: #f78e34;
+    color: #222; /* Cambia el color de fondo del enlace a un gris claro cuando el cursor pasa sobre él. */
 }
 
 .dropdown:hover .dropdown_Contenido {
-    display: block; /* Muestra el contenido del dropdown cuando el usuario pasa el cursor sobre el contenedor .dropdown. */
+     /* Muestra el contenido del dropdown cuando el usuario pasa el cursor sobre el contenedor .dropdown. */
+    display: inline-block; /* convierte la lista en una grilla. */
+ width: 100%;
 }
 
 
@@ -121,15 +158,21 @@ nav ul li a:active {
 }
 
 .sesion {
-    color: rgb(0, 18, 69); /* Establece un color de texto. */
+    color: #f78e34;
+    transition: background-color 0.3s, color 0.3s;/* Establece un color de texto. */ 
     text-decoration: none; /* Elimina el subrayado por defecto del enlace. */
     cursor: pointer; /* Cambia el cursor a una mano, indicando que el elemento es clickeable. */
     font-size: 1.5em; /* Establece el tamaño de la fuente a 1.5 veces el tamaño de fuente predeterminado. */
     font-weight: bold; /* Hace que el texto sea en negrita. */
+    border: 1px solid peru;
+    border-radius: 6px;
 }
 
+
+
 .sesion:hover {
-    color: darkred; /* Cambia el color del texto cuando el cursor pasa sobre el enlace. */
+    background-color: #f78e34;
+    color: #222222; /* Cambia el color del texto cuando el cursor pasa sobre el enlace. */
 }
 
 /*-- MODAL ----------------------------------------------------------*/
