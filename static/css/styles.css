@@ -1,0 +1,8 @@
+/* Banner principal con imagen de fondo */
+.banner-principal {
+  height: 90vh;
+  background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
