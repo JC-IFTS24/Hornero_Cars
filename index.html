@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hornero Cars</title>
     <link rel="stylesheet" href="static/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!--HEADER-->
@@ -49,16 +52,80 @@
     </header>
     <!--MAIN section banner index-->
     <main>  
-        <section id="seccion-con-foto"  aria-label="Hornero Cars"> <!-- Aca para poner una foto de presentacion entre el nav y el footer -->
-            
+            <section class="hero-banner">
+            <!--banner izquierda-->
+            <div class="hero-content-wrapper"> <div class="static-banner-left"> 
+                    <img src="" alt="Hornero Cars Logo Grande">
+                    <div class="static-caption">
+                        <h1>Tu viaje comienza con HorneroCars</h1>
+                        <p>Las mejores tarifas</p>
+                    </div>
+                </div>
+                <!--banner derecha (carousel)-->
+                <div class="dynamic-carousel-right"> <div class="carousel-container">
+                        <div class="carousel-slide fade"> 
+                            <img src="static/img/auto1.png" alt="Auto en Alquiler 1">
+                            <div class="carousel-caption"> 
+                                <h2>Deportivos</h2>
+                                <p>Explora la ciudad con estilo.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/auto2.png" alt="Auto en Alquiler 2">
+                            <div class="carousel-caption">
+                                <h2>Compactos</h2>
+                                <p>Agil y estilizado: La ciudad te espera.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/auto3.png" alt="Auto en Alquiler 3">
+                            <div class="carousel-caption">
+                                <h2>Sedanes/Hatchbacks</h2>
+                                <p>Comodidad y Espacio para Cada Aventura</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/auto4.png" alt="Auto en Alquiler 4">
+                            <div class="carousel-caption">
+                                <h2>SUVs/Pick-ups</h2>
+                                <p>Aventura sin Límites: Conquista Cualquier Terreno</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/van.png" alt="Auto en Alquiler 5">
+                            <div class="carousel-caption">
+                                <h2>Minivans/Vehículos de Pasajeros</h2>
+                                <p>Viajes en Grupo: Todos a Bordo con Comodidad</p>
+                            </div>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <div style="text-align:center; position: absolute; bottom: 20px; width: 100%;">
+                            <span class="dot" onclick="currentSlide(1)"></span> <!--boton clase dot que lo hace circulo-->
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div> </section>
+
+        <!--Seccion ALQUILAR AHORA-->
+        <section class="alquilar-ahora-container">
+            <div class="alquilar-ahora-content">
+                <h2>¿Listo para el mejor viaje?</h2>
+                <p>Encuentra el auto perfecto para tus necesidades y reserva en minutos.</p>
+                <button id="alquilarAhora" class="btn primary-btn">Alquilar Ahora</button> 
+                </div>
         </section>
+        
     </main>
     <!--FOOTER -->
     <footer>
 
     </footer>
     <!--SCRIPT links-->
-    <script src=""></script>
+    <script src="static/js/script.js"></script>
     
 </body>
 </html>
