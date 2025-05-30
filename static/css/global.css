@@ -1,150 +1,74 @@
 /* static/css/global.css */
 
-/* Selector universal: aplica a todos los elementos */
 * {
-    /* Define cómo se calcula el ancho y alto de un elemento.
-       'border-box' incluye el padding y el borde dentro del ancho y alto total especificado,
-       lo que facilita el diseño con medidas precisas y evita desbordes. */
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilos para el cuerpo del documento (la página completa) */
+html {
+    font-size: 16px; 
+}
+
 body {
-    /* Cambia el color de fondo del body a un gris muy claro. */
-    background-color: #f7f7f7;
-    /* Asegura que el cuerpo ocupe al menos el 100% de la altura del viewport,
-       permitiendo que el footer se posicione correctamente al final. */
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #343a40; /* Un color de texto oscuro principal, no negro puro */
+    background-color: #f8f9fa; /* Fondo general un poco más claro */
     min-height: 100vh;
-    /* Usa flexbox en el cuerpo para organizar el contenido verticalmente. */
     display: flex;
     flex-direction: column;
 }
 
-/* Variables CSS personalizadas (definidas en el elemento raíz HTML) */
-:root {
-    /* --primary-color: Un tono de azul para elementos principales. */
-    --primary-color: #5784c7;
-    /* --secondary-color: Un tono de azul más oscuro para elementos secundarios o al pasar el mouse. */
-    --secondary-color: #195c7d;
-}
-
-/* HEADER (sección de encabezado) y NAV (barra de navegación) */
-
-/* Estilos para la barra de navegación que no usa Bootstrap (comentados o eliminados si se usa solo Bootstrap) */
-/*
-nav {
-    z-index: 1000;
-}
-
-nav ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    grid-template-rows: 120px;
-    justify-content: center;
-    justify-items: center;
-    list-style-type: none;
-    padding: 0;
-    background-image: linear-gradient(to bottom right, rgba(213, 229, 238, 0.9), rgba(162, 227, 247, 0.444));
-}
-
-#imagen_Logo {
-    overflow: hidden;
-}
-
-nav ul li {
-    padding: 10px;
-    text-align: center;
-    line-height: 100px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--primary-color);
-    white-space: nowrap;
-    font-size: 1.5em;
-}
-
-nav ul li a:hover {
-    color: var(--secondary-color);
-}
-
-nav ul li a:active {
-    color: #26027a;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown_Contenido {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    z-index: 1000;
-    top: 100%;
-    left: 0;
-    opacity: 0;
-    animation: fadeInDown 0.9s ease forwards;
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.show-dropdown .dropdown_Contenido {
-    display: block;
-}
-
-.dropdown_Contenido a {
-    color: var(--secondary-color);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown_Contenido a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown_Contenido {
-    display: block;
-}
-
-.dropbtn {
-    background-color: #29abe2;
-    color: #ffffff;
-    border: 1px solid #02577a;
-}
-
-.sesion {
-    color: rgb(0, 18, 69);
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.sesion:hover {
-    color: darkred;
-}
-*/
-
-/* MAIN (contenido principal de la página) */
 main {
-    /* flex-grow: 1 permite que el contenido principal ocupe todo el espacio disponible
-       entre el header y el footer, empujando el footer hacia abajo. */
     flex-grow: 1;
 }
 
+/* Variables CSS personalizadas */
+:root {
+    --primary-color-hornero: #ff8c00; /* Naranja Hornero Cars */
+    --secondary-color-hornero: #343a40; /* Gris oscuro Hornero Cars */
+    --bs-primary-rgb: 255, 140, 0; /* Para que Bootstrap use nuestro naranja en componentes primarios */
+    --bs-link-color-rgb: 255, 140, 0;
+    --bs-link-hover-color-rgb: 230, 126, 0;
 
-/* FOOTER (pie de página) */
-/* Los estilos del footer se manejan principalmente con clases de Bootstrap en index.html y los demás templates. */
+}
+
+a {
+    color: var(--primary-color-hornero);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e67e00; /* Naranja más oscuro para hover */
+    text-decoration: none; /* Mantener sin subrayado o añadirlo si se prefiere */
+}
+
+/* Para que los botones primarios de Bootstrap tomen el color naranja */
+.btn-primary {
+    --bs-btn-bg: var(--primary-color-hornero);
+    --bs-btn-border-color: var(--primary-color-hornero);
+    --bs-btn-hover-bg: #e67e00;
+    --bs-btn-hover-border-color: #e67e00;
+    --bs-btn-active-bg: #cc7000;
+    --bs-btn-active-border-color: #cc7000;
+    --bs-btn-disabled-bg: var(--primary-color-hornero);
+    --bs-btn-disabled-border-color: var(--primary-color-hornero);
+    color: #fff; /* Texto blanco para botones naranjas */
+}
+
+.btn-outline-warning { /* Botón Cerrar Sesión */
+    --bs-btn-color: var(--primary-color-hornero);
+    --bs-btn-border-color: var(--primary-color-hornero);
+    --bs-btn-hover-bg: var(--primary-color-hornero);
+    --bs-btn-hover-border-color: var(--primary-color-hornero);
+    --bs-btn-hover-color: #fff;
+     --bs-btn-active-bg: #e67e00;
+    --bs-btn-active-border-color: #e67e00;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500; 
+    color: #212529; 
+}
