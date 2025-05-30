@@ -6,7 +6,7 @@
 
 
 body{
-    background-color: #f7f7f7; /* Cambia el color de fondo del body (la página completa) a un gris muy claro. */
+    background-color: #ffffff; /* Cambia el color de fondo del body (la página completa) a un gris muy claro. */
 }
 
 :root { /* :root es el selector del elemento raíz (html). */
@@ -25,7 +25,7 @@ nav {
                          Z-INDEX: 1000 Define un nivel de apilamiento alto para que la barra 
                          esté por encima de otros elementos si se superponen.*/
     font-family: 'Segoe UI', sans-serif;
-    background-color: #121212;
+    
 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 background-color: #222222;
 
@@ -46,6 +46,8 @@ nav ul {
 #imagen_Logo{
     overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor del logo. */
     grid-column: 1/2;
+    padding-bottom: 5px;
+
 }
 
 
@@ -62,9 +64,6 @@ nav ul {
     grid-column: 4/5;
 }
 
-#vacio{
-    grid-column: 5/6;
-}
 
 #sesion{
     grid-column: 6/7;
@@ -106,7 +105,8 @@ nav ul li a:active {
 .dropdown_Contenido {
     display: none; /* Oculta el elemento por defecto. La idea es que este menú solo se muestre cuando se active la clase show-dropdown. */
     position: absolute; /* Coloca el menú en una posición absoluta con respecto al primer elemento padre con posición relativa. */
-     background-color: #333333; /* Establece el color de fondo del dropdown */
+background-color: #222222;
+      /* Establece el color de fondo del dropdown */
     box-shadow: 0 4px 8px rgba(0,0,0,0.6);
     border-radius: 4px;
     min-width: 160px; /* Define un ancho mínimo de 160 píxeles para el dropdown. */
@@ -150,13 +150,6 @@ nav ul li a:active {
  width: 100%;
 }
 
-
-.dropbtn{
-    background-color:#29abe2; /* Establece un color de fondo para el botón. */
-    color: #ffffff; /* Establece el color del texto */
-    border: 1px solid #02577a; /* Aplica un borde de 1 píxel con un color al botón. */
-}
-
 .sesion {
     color: #f78e34;
     transition: background-color 0.3s, color 0.3s;/* Establece un color de texto. */ 
@@ -177,8 +170,245 @@ nav ul li a:active {
 
 /*-- MODAL ----------------------------------------------------------*/
 
+.modal {
+  display: none; /* Necesario para centrar */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semitransparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+.modal-contenido img {
+  display: block;
+  margin: 0 auto 10px;
+}
+
+
+.modal-contenido {
+background-color: #222222; /* Fondo negro */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 320px;
+  position: relative;
+  font-family: sans-serif;
+  color: #fff; /* Texto blanco */
+}
+
+.modal-contenido h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f78e34; /* Color principal para el título */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #666; /* Línea gris */
+  margin-bottom: 5px;
+  padding: 5px 0;
+}
+
+.input-container i {
+  margin-right: 10px;
+  color: #f78e34; /* Ícono en color naranja */
+}
+
+.input-container input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0;
+  color: #fff; /* Texto blanco */
+}
+
+.modal-contenido .sesionIncorrecta {
+  color: #ff5c5c;
+  font-size: 12px;
+  visibility:hidden;
+  height: 14px;
+  margin-bottom: 10px;
+}
+
+.modal-contenido input {
+  background-color: #111;
+  color: white;
+  border: none;
+  border-bottom: 2px solid #fff;
+  padding: 10px 10px 10px 35px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.modal-contenido input:focus {
+  border-bottom: 2px solid #f78e34;
+}
+
+#inciarSesionBtn {
+  background-color: #f78e34;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 20px auto 10px;
+  display: block;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+#inciarSesionBtn:hover {
+  background-color: #e66d0b;
+}
+
+.olvide {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.olvide a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.olvide a:hover {
+  text-decoration: underline;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #f78e34;
+  cursor: pointer;
+}
+
+.crear-cuenta {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+
+.crear-cuenta a {
+  color: #f78e34;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.crear-cuenta a:hover {
+  text-decoration: underline;
+}
+
 
 
 /*--FOOTER  ----------------------------------------------------------------------------------------------*/
 
+footer {
+    background-color: #f78e34;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    padding: 20px 0;
+    text-align: center;
+}
 
+.footer-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-seccion {
+    flex: 1;
+    margin: 20px;
+    min-width: 200px;
+}
+.footer-seccion a{
+text-decoration: none;
+color: inherit;
+}
+
+.footer-seccion h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer-seccion p,
+.footer-seccion ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-seccion ul {
+    list-style-type: none;
+}
+
+.footer-seccion ul li {
+    margin: 5px 0;
+}
+
+.footer-seccion ul li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-seccion ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-seccion .footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-seccion .footer-social a img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-boton {
+    margin-top: 20px;
+}
+
+.footer-seccion.footer-social a {
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-seccion.footer-social a .fa-facebook {
+    color: #3b5998; /* Color inicial de Facebook */
+}
+
+.footer-seccion.footer-social a .fa-twitter {
+    color: #00acee; /* Color inicial de Twitter */
+}
+
+.footer-seccion.footer-social a .fa-instagram {
+    color: #e4405f; /* Color inicial de Instagram */
+}
+
+.footer-seccion.footer-social a:hover .fa-facebook {
+    color: #1d305e; /* Color de Facebook al pasar el ratón por encima */
+}
+
+.footer-seccion.footer-social a:hover .fa-twitter {
+    color: #007bb5; /* Color de Twitter al pasar el ratón por encima */
+}
+
+.footer-seccion.footer-social a:hover .fa-instagram {
+    color: #bc2a8d; /* Color de Instagram al pasar el ratón por encima */
+}
