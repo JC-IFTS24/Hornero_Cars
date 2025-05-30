@@ -1,0 +1,116 @@
+/* static/css/dashboardCliente.css */
+
+body.dashboard-page-body {
+    background-color: #f4f6f9; /* Un gris muy claro para el fondo general de la página */
+    font-family: 'Segoe UI', sans-serif; /* Asegurar consistencia de fuente */
+    padding-top: 56px; /* Altura de la navbar superior fija */
+}
+
+/* Estilos para la barra de navegación lateral del dashboard */
+#sidebarMenu {
+    /* background-color: #343a40; */ /* Fondo oscuro para el sidebar, Bootstrap usa .bg-light por defecto */
+    /* min-height: calc(100vh - 56px); */ /* 56px es la altura típica de la navbar superior */
+    /* box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1); */
+    height: calc(100vh - 56px); /* Ocupa toda la altura menos la navbar */
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Detrás de la navbar pero sobre el contenido */
+    padding: 0; 
+    overflow-x: hidden;
+    overflow-y: auto; /* Scroll si el contenido es más largo */
+}
+
+.dashboard-nav-pills .nav-link {
+    color: #495057; /* Color de texto para los enlaces en bg-light */
+    border-radius: 0.25rem; 
+    padding: 0.75rem 1rem;
+    margin: 0.2rem 0.5rem; 
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    font-weight: 500;
+}
+
+.dashboard-nav-pills .nav-link.active {
+    background-color: #ff8c00; 
+    color: white;
+}
+
+.dashboard-nav-pills .nav-link:not(.active):hover {
+    background-color: #e9ecef; 
+    color: #000;
+}
+
+/* Contenido principal a la derecha del sidebar */
+main.col-md-9 {
+    padding-top: 1.5rem; /* Espacio arriba en el main content */
+}
+
+
+/* Estilos para el título principal de la sección del dashboard */
+#dashboard-section-title {
+    color: #343a40;
+    font-weight: 300; 
+}
+
+/* Estilos para el contenido de cada pestaña del dashboard */
+.tab-content > .tab-pane {
+    background-color: #ffffff;
+    padding: 20px 25px; 
+    border-radius: 0.375rem; 
+    border: 1px solid #dee2e6; 
+}
+
+/* Estilos para la sección "Mi Cuenta" */
+#mi-cuenta-content .card {
+    border: 1px solid #e0e0e0; /* Borde más suave para las cards internas */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#mi-cuenta-content .card-header {
+    background-color: #f8f9fa; 
+    color: #495057;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.75rem 1.25rem;
+}
+
+#mi-cuenta-content label.form-label {
+    font-weight: 500; 
+    color: #495057;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+#mi-cuenta-content input.form-control-sm {
+    font-size: 0.9rem;
+}
+
+/* Estilos para inputs en modo "solo lectura" (cuando fieldset está disabled) */
+#fieldsetMiCuenta:disabled input.form-control,
+#fieldsetMiCuenta:disabled select.form-select, 
+#fieldsetMiCuenta:disabled textarea.form-control { 
+    background-color: #e9ecef; 
+    opacity: 0.9; 
+    border: 1px solid #ced4da;
+    cursor: default; 
+}
+/* Para el input de email y fecha de registro que son siempre readonly, aplicamos estilo similar */
+#cuentaEmail[readonly], #cuentaFechaRegistro[readonly] {
+    background-color: #e9ecef;
+    opacity: 0.9;
+}
+
+/* Footer fijo abajo */
+footer.fixed-bottom {
+    z-index: 1031; 
+    height: 56px; /* Altura similar a la navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Para asegurar que el contenido principal no quede debajo del footer fijo */
+body.dashboard-page-body {
+    padding-bottom: 56px; /* Misma altura que el footer */
+}

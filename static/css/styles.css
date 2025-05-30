@@ -1,8 +1,17 @@
-/* Banner principal con imagen de fondo */
+/* static/css/styles.css */
+
+/* Banner principal con imagen de fondo (utilizado en index.html) */
 .banner-principal {
-  height: 90vh;
-  background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    /* Altura del banner: 90% del alto del viewport */
+    height: 90vh;
+    /* Imagen de fondo del banner */
+    background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
+    /* Cubre completamente el área del banner sin distorsionar la imagen */
+    background-size: cover;
+    /* Centra la imagen de fondo */
+    background-position: center;
+    /* Evita que la imagen de fondo se repita */
+    background-repeat: no-repeat;
 }
+
+/* Puedes añadir más estilos generales o de componentes no específicos de Bootstrap aquí si es necesario. */

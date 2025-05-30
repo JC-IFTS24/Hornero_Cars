@@ -1,144 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hornero Cars</title>
-    <link rel="stylesheet" href="../static/css/global.css">
-</head>
-<body>
-    <!--HEADER-->
-    <header>
-        <!--NAV-->
-        <nav>
-            <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
-                <li id="imagen_Logo">
-                    <a href="../index.html" >
-                        <img src="" height="110" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
-                    </a>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros | Hornero Cars</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="../index.html">HORNERO CARS</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Información</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="vehiculos.html">Vehículos</a>
                 </li>
-                <li class="dropdown">
-                    <a href="nosotros.html">Nosotros</a>
-                    <div class="dropdown_Contenido">
-                        <a href="#nosotros">Sobre "Horneros Cars"</a>
-                        <a href="#oficinas">Oficinas</a>
-                        <a href="#contacto">Contacto</a>
-                    </div>
-                <li class="dropdown" >
-                    <a href="informacion.html">Información</a>
-                    <div class="dropdown_Contenido">
-                        <a href="informacion.html#vehiculos">Vehiculos</a>
-                        <a href="informacion.html#tarifas">Tarifas</a>
-                        <a href="informacion.html#requisitos">Requisitos</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="reserva.html">Hace tu reserva</a>
-                </li>
-                <!--Li vacio para poder jugar con el espacio en distintas medidas con display:none-->
-                <li class="dropdown"> 
-                    <a href=""></a>
-                </li>
-                <!--MODAL link a js-->
-                <li class="dropdown">
-                    <a href="" class="sesion">Iniciar Sesion</a>
-               </li>
-            </ul>
-        </nav>
-        <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
-    </header>
-    <!--MAIN section banner index-->
-    <main>  
-        <section id="nosotros" aria-label="Hornero Cars"> <!-- Aca para poner una foto de presentacion entre el nav y el footer -->
-            <h2>Sobre Hornero Cars</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Suscipit sed tempore id. Placeat, deserunt. 
-                Provident eum doloribus distinctio voluptas 
-                natus excepturi culpa laudantium in adipisci 
-                dignissimos? Excepturi pariatur labore recusandae?</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+                <li><a class="dropdown-item" href="informacion.html#tarifas">Tarifas</a></li>
+                <li><a class="dropdown-item" href="informacion.html#requisitos">Requisitos</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Nosotros</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#nosotros">Sobre HORNERO</a></li>
+                <li><a class="dropdown-item" href="#oficinas">Oficinas</a></li>
+                <li><a class="dropdown-item" href="#contacto">Contacto</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-primary text-white ms-lg-3"
+                href="reserva.html"
+                >Reservar</a
+              >
+            </li>
+          </ul>
+          <a class="btn btn-outline-light me-2" href="#">Iniciar sesión</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <header class="text-center mb-4">
+        <h1 class="display-5 fw-bold">Conoce HORNERO CARS</h1>
+        <p class="lead">Tu compañero de viaje confiable.</p>
+      </header>
+
+      <section id="nosotros" class="mb-5">
+        <h2 class="text-primary">Sobre "Hornero Cars"</h2>
+        <p>
+          En Hornero Cars, nuestra pasión es facilitarte el camino. Fundada en
+          [Año de Fundación], nos hemos dedicado a ofrecer soluciones de
+          movilidad flexibles y accesibles, con una flota de vehículos moderna y
+          un servicio al cliente excepcional. Creemos que cada viaje es una
+          oportunidad para crear nuevas historias, y estamos aquí para
+          asegurarnos de que comiences el tuyo de la mejor manera.
+        </p>
+        <p>
+          Nuestro compromiso es la transparencia, la seguridad y la comodidad.
+          Desde el momento en que eliges tu auto hasta que lo devuelves, nos
+          esforzamos por ofrecerte una experiencia sin complicaciones.
+        </p>
         </section>
-        <section id="oficinas">
-            <h2>Oficinas</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                 Quos a exercitationem totam et labore iste, est ullam,
-                  magni hic, recusandae cum expedita temporibus vel autem
-                   eveniet fugiat illo impedit. Maiores!</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
+      <section id="oficinas" class="mb-5">
+        <h2 class="text-primary">Nuestras Oficinas</h2>
+        <p>
+          Nos encontramos estratégicamente ubicados para tu conveniencia. Visítanos
+          en cualquiera de nuestras sucursales o contáctanos para coordinar el
+          retiro y devolución de tu vehículo.
+        </p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Oficina Central - Buenos Aires</h5>
+                <p class="card-text">
+                  <i class="bi bi-geo-alt-fill me-2"></i>Av. Corrientes 1234, CABA.<br />
+                  <i class="bi bi-telephone-fill me-2"></i>+54 9 11 5555-1234<br />
+                  <i class="bi bi-clock-fill me-2"></i>Lun-Vie: 9:00 - 18:00 hs.
+                </p>
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Oficina Sur - Patagonia</h5>
+                <p class="card-text">
+                  <i class="bi bi-geo-alt-fill me-2"></i>Av. San Martín 567, Bariloche.<br />
+                  <i class="bi bi-telephone-fill me-2"></i>+54 9 294 455-6789<br />
+                  <i class="bi bi-clock-fill me-2"></i>Lun-Sab: 10:00 - 17:00 hs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         </section>
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Totam tempora eaque error in nobis, voluptatem odio quos 
-                necessitatibus doloribus earum praesentium ipsa voluptatibus 
-                aliquam placeat, facere neque magni deserunt quae?</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
+      <section id="contacto" class="mb-5">
+        <h2 class="text-primary">Contáctanos</h2>
+        <p>
+          ¿Tienes preguntas, sugerencias o necesitas asistencia? Estamos aquí
+          para ayudarte. Puedes contactarnos a través de los siguientes medios:
+        </p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i class="bi bi-envelope-fill me-2"></i>Email:
+            <a href="mailto:info@hornerocars.com">info@hornerocars.com</a>
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-phone-fill me-2"></i>Teléfono: +54 9 11 5555-1234
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-whatsapp me-2"></i>WhatsApp: +54 9 11 5555-1234
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-chat-dots-fill me-2"></i>Chat en vivo (próximamente)
+          </li>
+        </ul>
+        <p class="mt-3">
+          También puedes rellenar nuestro formulario de contacto en línea, y te
+          responderemos a la brevedad.
+        </p>
         </section>
     </main>
 
-    <!--FOOTER -->
-    <footer>
-
+    <footer class="bg-dark text-white text-center p-3 mt-auto">
+      <p>Síguenos en redes sociales</p>
+      <div>
+        <a href="#" class="text-white me-3">Facebook</a>
+        <a href="#" class="text-white me-3">Instagram</a>
+        <a href="#" class="text-white">Twitter</a>
+      </div>
+      <p class="mt-2">&copy; 2024 HORNERO CARS. Todos los derechos reservados.</p>
     </footer>
-    <!--SCRIPT links-->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src=""></script>
-    
-</body>
+  </body>
 </html>

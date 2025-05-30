@@ -1,144 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hornero Cars</title>
-    <link rel="stylesheet" href="../static/css/global.css">
-</head>
-<body>
-    <!--HEADER-->
-    <header>
-        <!--NAV-->
-        <nav>
-            <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
-                <li id="imagen_Logo">
-                    <a href="../index.html" >
-                        <img src="" height="110" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
-                    </a>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Información | Hornero Cars</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="../index.html">HORNERO CARS</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Información</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="vehiculos.html">Vehículos</a>
                 </li>
-                <li class="dropdown">
-                    <a href="nosotros.html">Nosotros</a>
-                    <div class="dropdown_Contenido">
-                        <a href="nosotros.html#nosotros">Sobre "Horneros Cars"</a>
-                        <a href="nosotros.html#oficinas">Oficinas</a>
-                        <a href="nosotros.html#contacto">Contacto</a>
-                    </div>
-                <li class="dropdown" >
-                    <a href="informacion.html">Información</a>
-                    <div class="dropdown_Contenido">
-                        <a href="#vehiculos">Vehiculos</a>
-                        <a href="#tarifas">Tarifas</a>
-                        <a href="#requisitos">Requisitos</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="reserva.html">Hace tu reserva</a>
-                </li>
-                <!--Li vacio para poder jugar con el espacio en distintas medidas con display:none-->
-                <li class="dropdown"> 
-                    <a href=""></a>
-                </li>
-                <!--MODAL link a js-->
-                <li class="dropdown">
-                    <a href="" class="sesion">Iniciar Sesion</a>
-               </li>
-            </ul>
-        </nav>
-        <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
-    </header>
-    <!--MAIN section banner index-->
-    <main>  
-        <section id="vehiculos" aria-label="Hornero Cars"> <!-- Aca para poner una foto de presentacion entre el nav y el footer -->
-            <h2>Vehiculos</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Suscipit sed tempore id. Placeat, deserunt. 
-                Provident eum doloribus distinctio voluptas 
-                natus excepturi culpa laudantium in adipisci 
-                dignissimos? Excepturi pariatur labore recusandae?</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+                <li><a class="dropdown-item" href="#tarifas">Tarifas</a></li>
+                <li><a class="dropdown-item" href="#requisitos">Requisitos</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Nosotros</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="nosotros.html#nosotros">Sobre HORNERO</a></li>
+                <li><a class="dropdown-item" href="nosotros.html#oficinas">Oficinas</a></li>
+                <li><a class="dropdown-item" href="nosotros.html#contacto">Contacto</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-primary text-white ms-lg-3"
+                href="reserva.html"
+                >Reservar</a
+              >
+            </li>
+          </ul>
+          <a class="btn btn-outline-light me-2" href="#">Iniciar sesión</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <h1 class="text-center mb-4">Información General</h1>
+      <section id="vehiculos" class="mb-5">
+        <h2 class="text-primary">Nuestra Flota de Vehículos</h2>
+        <p>
+          En HORNERO CARS, contamos con una amplia y moderna flota de vehículos
+          para satisfacer todas tus necesidades de viaje. Desde compactos
+          económicos hasta SUVs espaciosas y coches de lujo, tenemos el auto
+          perfecto para ti.
+        </p>
+        <p>
+          Explora nuestro catálogo completo de vehículos haciendo clic en el
+          siguiente enlace:
+        </p>
+        <a href="vehiculos.html" class="btn btn-info">Ver Vehículos Disponibles</a>
         </section>
-        <section id="tarifas">
-            <h2>Tarifas</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                 Quos a exercitationem totam et labore iste, est ullam,
-                  magni hic, recusandae cum expedita temporibus vel autem
-                   eveniet fugiat illo impedit. Maiores!</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </section>
-        <section id="requisitos">
-            <h2>Requisitos</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Totam tempora eaque error in nobis, voluptatem odio quos 
-                necessitatibus doloribus earum praesentium ipsa voluptatibus 
-                aliquam placeat, facere neque magni deserunt quae?</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
+      <section id="tarifas" class="mb-5">
+        <h2 class="text-primary">Tarifas y Precios de Alquiler</h2>
+        <p>
+          Ofrecemos tarifas competitivas y planes flexibles para que encuentres
+          la opción que mejor se adapte a tu presupuesto. Nuestros precios
+          incluyen seguro básico y asistencia en carretera las 24 horas.
+        </p>
+        <table class="table table-striped table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Categoría</th>
+              <th scope="col">Ejemplo de Modelo</th>
+              <th scope="col">Precio por Día (aprox.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Económico</td>
+              <td>Fiat Cronos / Chevrolet Onix</td>
+              <td>Desde $16.000 ARS</td>
+            </tr>
+            <tr>
+              <td>Sedán Confort</td>
+              <td>Toyota Corolla / Volkswagen Virtus</td>
+              <td>Desde $18.000 ARS</td>
+            </tr>
+            <tr>
+              <td>SUV / Familiar</td>
+              <td>Jeep Renegade / Volkswagen Taos</td>
+              <td>Desde $25.000 ARS</td>
+            </tr>
+            <tr>
+              <td>Utilitario / Carga</td>
+              <td>Fiat Fiorino / Renault Kangoo</td>
+              <td>Desde $20.000 ARS</td>
+            </tr>
+            <tr>
+              <td>Premium / Lujo</td>
+              <td>Mercedes-Benz Clase C / Audi A4</td>
+              <td>Desde $40.000 ARS</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Para obtener un presupuesto exacto y personalizar tu alquiler, te
+          invitamos a utilizar nuestra herramienta de reserva.
+        </p>
+      </section>
+
+      <section id="requisitos" class="mb-5">
+        <h2 class="text-primary">Requisitos para Alquilar un Auto</h2>
+        <p>Para alquilar un vehículo con HORNERO CARS, necesitarás lo siguiente:</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Edad mínima: 21 años (para algunas categorías, 25 años).
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Licencia de conducir vigente con al menos 1 año de antigüedad.
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Documento de identidad (DNI o pasaporte).
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Tarjeta de crédito a nombre del titular de la reserva para el depósito de garantía.
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Confirmación de reserva (impresa o digital).
+          </li>
+        </ul>
+        <p class="mt-3">
+          Si tienes alguna duda sobre los requisitos, no dudes en
+          <a href="nosotros.html#contacto">contactarnos</a>.
+        </p>
         </section>
     </main>
 
-    <!--FOOTER -->
-    <footer>
-
+    <footer class="bg-dark text-white text-center p-3 mt-auto">
+      <p>Síguenos en redes sociales</p>
+      <div>
+        <a href="#" class="text-white me-3">Facebook</a>
+        <a href="#" class="text-white me-3">Instagram</a>
+        <a href="#" class="text-white">Twitter</a>
+      </div>
+      <p class="mt-2">&copy; 2024 HORNERO CARS. Todos los derechos reservados.</p>
     </footer>
-    <!--SCRIPT links-->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src=""></script>
-    
-</body>
+  </body>
 </html>

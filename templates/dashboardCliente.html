@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cliente | HORNERO CARS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/dashboardCliente.css">
+</head>
+<body class="dashboard-page-body">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../index.html">HORNERO CARS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Información</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>
+                            <li><a class="dropdown-item" href="informacion.html#tarifas">Tarifas</a></li>
+                            <li><a class="dropdown-item" href="informacion.html#requisitos">Requisitos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nosotros</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="nosotros.html#nosotros">Sobre HORNERO</a></li>
+                            <li><a class="dropdown-item" href="nosotros.html#oficinas">Oficinas</a></li>
+                            <li><a class="dropdown-item" href="nosotros.html#contacto">Contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-warning" id="btnCerrarSesion">Cerrar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="padding-top: 70px;">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column dashboard-nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="nav-mi-cuenta" href="#" data-bs-toggle="tab" data-bs-target="#mi-cuenta-content" type="button" role="tab" aria-controls="mi-cuenta-content" aria-selected="true">
+                                Mi Cuenta
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-hacer-reserva" href="#" data-bs-toggle="tab" data-bs-target="#hacer-reserva-content" type="button" role="tab" aria-controls="hacer-reserva-content" aria-selected="false">
+                                Hacer Reserva
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-mis-reservas" href="#" data-bs-toggle="tab" data-bs-target="#mis-reservas-content" type="button" role="tab" aria-controls="mis-reservas-content" aria-selected="false">
+                                Mis Reservas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" id="dashboard-section-title">Mi Cuenta</h1>
+                </div>
+
+                <div class="tab-content" id="dashboardTabContent">
+                    <div class="tab-pane fade show active" id="mi-cuenta-content" role="tabpanel" aria-labelledby="nav-mi-cuenta">
+                        <form id="formMiCuenta">
+                            <div class="row mb-3 align-items-center">
+                                <div class="col">
+                                    <h4 id="miCuentaTituloSub" class="mb-0">Detalles de tu Cuenta</h4>
+                                </div>
+                                <div class="col text-end">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btnEditarCuenta">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square me-1" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                        </svg>
+                                        Editar
+                                    </button>
+                                    <button type="submit" class="btn btn-success btn-sm d-none" id="btnGuardarCambios">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle me-1" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                        </svg>
+                                        Guardar Cambios
+                                    </button>
+                                    <button type="button" class="btn btn-secondary btn-sm d-none ms-2" id="btnCancelarEdicion">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle me-1" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <fieldset id="fieldsetMiCuenta" disabled>
+                                <div class="card mb-4">
+                                    <div class="card-header">Información Personal</div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaNombreCompleto" class="form-label">Nombre Completo <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control form-control-sm" id="cuentaNombreCompleto" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaEmail" class="form-label">Correo Electrónico</label>
+                                                <input type="email" class="form-control form-control-sm" id="cuentaEmail" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaTelefono" class="form-label">Teléfono</label>
+                                                <input type="tel" class="form-control form-control-sm" id="cuentaTelefono">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                                <input type="date" class="form-control form-control-sm" id="cuentaFechaNacimiento">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaFechaRegistro" class="form-label">Miembro Desde</label>
+                                                <input type="text" class="form-control form-control-sm" id="cuentaFechaRegistro" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header">Documentación</div>
+                                    <div class="card-body">
+                                        <h6>DNI</h6>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaDniNumero" class="form-label">Número de DNI</label>
+                                                <input type="text" class="form-control form-control-sm" id="cuentaDniNumero">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaDniFotoSim" class="form-label">Archivo Foto DNI (Nombre)</label>
+                                                <input type="text" class="form-control form-control-sm" id="cuentaDniFotoSim" placeholder="Ej: midni.jpg (solo nombre)">
+                                            </div>
+                                        </div>
+                                        <h6 class="mt-3">Licencia de Conducir</h6>
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="cuentaLicenciaNumero" class="form-label">Número de Licencia</label>
+                                                <input type="text" class="form-control form-control-sm" id="cuentaLicenciaNumero">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="cuentaLicenciaCategoria" class="form-label">Categoría</label>
+                                                <input type="text" class="form-control form-control-sm" id="cuentaLicenciaCategoria">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="cuentaLicenciaVencimiento" class="form-label">Fecha de Vencimiento</label>
+                                                <input type="date" class="form-control form-control-sm" id="cuentaLicenciaVencimiento">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cuentaLicenciaFotoSim" class="form-label">Archivo Foto Licencia (Nombre)</label>
+                                                <input type="text" class="form-control form-control-sm" id="cuentaLicenciaFotoSim" placeholder="Ej: milicencia.jpg (solo nombre)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="hacer-reserva-content" role="tabpanel" aria-labelledby="nav-hacer-reserva">
+                        <h4>Elige tu Próximo Vehículo</h4>
+                        <p>Aquí irá el catálogo de vehículos, filtros y el proceso de selección de fechas y confirmación de reserva.</p>
+                        </div>
+
+                    <div class="tab-pane fade" id="mis-reservas-content" role="tabpanel" aria-labelledby="nav-mis-reservas">
+                        <h4>Tu Historial de Reservas</h4>
+                        <p>Aquí podrás ver tus reservas activas y pasadas.</p>
+                        </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center p-3 mt-auto fixed-bottom">
+        <p class="mb-0">&copy; <span id="currentYear"></span> HORNERO CARS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script src="../scripts/dashboardCliente.js"></script> 
+    
+    <script>
+        // Pequeño script para el año actual en el footer
+        if (document.getElementById('currentYear')) {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
