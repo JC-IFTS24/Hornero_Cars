@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros | Hornero Cars</title>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous">
+    <title>Crear Cuenta | HORNERO CARS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/global.css">
-      <link rel="stylesheet" href="../static/css/nosotros.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/registro.css"> 
+    <link rel="stylesheet" href="../static/css/styles.css"> 
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
+</head>
+<body class="registro-page">
 
-  <body>
-    <!--HEADER-->
+   <!--HEADER-->
     <header>
     <!--NAV-->
         <nav>
@@ -82,86 +78,78 @@
         </div>
     </header>
 
+<!--Formulario Registro-->
+    <main class="container flex-grow-1 py-4"> <!--py-4 para un poco de padding vertical en main -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7 col-xl-6"> <!--Ajuste de columnas para diferentes tamaños */} -->
+                <div class="registration-container">
+                    <h2>Crear Nueva Cuenta</h2>
+                    <form id="formRegistro">
+                        <h5 class="text-muted mb-3">Información Personal</h5>
+                        <div class="mb-3">
+                            <label for="nombreCompleto" class="form-label">Nombre Completo <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nombreCompleto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="password" class="form-label">Contraseña <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="confirmPassword" class="form-label">Confirmar Contraseña <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Número de Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" placeholder="Ej: +5491112345678">
+                        </div>
+                        <div class="mb-4">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="fechaNacimiento">
+                        </div>
 
-<!--SECCION NOSOTROS-->
-  <main class="container my-5"> <section id="nosotros" class="mb-5">
-        <h2 class="nosotros text-center">Sobre "Hornero Cars"</h2>
-        <p class="lead text-justify"> En Hornero Cars, nuestra pasión es facilitarte el camino. Fundada en
-          [Año de Fundación], nos hemos dedicado a ofrecer soluciones de
-          movilidad flexibles y accesibles, con una flota de vehículos moderna y
-          un servicio al cliente excepcional. Creemos que cada viaje es una
-          oportunidad para crear nuevas historias, y estamos aquí para
-          asegurarnos de que comiences el tuyo de la mejor manera.
-        </p>
-        <p class="text-justify">
-          Nuestro compromiso es la transparencia, la seguridad y la comodidad.
-          Desde el momento en que eliges tu auto hasta que lo devuelves, nos
-          esforzamos por ofrecerte una experiencia sin complicaciones.
-        </p>
-      </section>
-<!--OFICINOS-->
-      <hr class="my-5"> <section id="oficinas" class="mb-5">
-        <h2 class="nosotros text-center">Nuestras Oficinas</h2>
-        <p class="text-center">
-          Nos encontramos estratégicamente ubicados para tu conveniencia. Visítanos
-          en cualquiera de nuestras sucursales o contáctanos para coordinar el
-          retiro y devolución de tu vehículo.
-        </p>
-        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"> <div class="col">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title text-center">Oficina Central - Buenos Aires</h5>
-                <p class="card-text">
-                  <i class="bi bi-geo-alt-fill me-2"></i>Av. Corrientes 1234, CABA.<br />
-                  <i class="bi bi-telephone-fill me-2"></i>+54 9 11 5555-1234<br />
-                  <i class="bi bi-clock-fill me-2"></i>Lun-Vie: 9:00 - 18:00 hs.
-                </p>
-              </div>
+                        <hr class="my-4" style="border-top: 1px solid #495057;"> <!-- Separador visual */ -->
+
+                        <h5 class="text-muted mb-3">Documentación (Opcional al registrar)</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="dniNumero" class="form-label">Número de DNI</label>
+                                <input type="text" class="form-control" id="dniNumero">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="licenciaNumero" class="form-label">Número de Licencia de Conducir</label>
+                                <input type="text" class="form-control" id="licenciaNumero">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="licenciaCategoria" class="form-label">Categoría de Licencia</label>
+                                <input type="text" class="form-control" id="licenciaCategoria" placeholder="Ej: B1, B2">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="licenciaVencimiento" class="form-label">Vencimiento Licencia</label>
+                            <input type="date" class="form-control" id="licenciaVencimiento">
+                        </div>
+                        
+                        <div class="d-grid gap-2 mt-4">  <!-- mt-4 para espacio antes del botón-->
+                            <button type="submit" class="btn btn-custom-register btn-lg">Crear Cuenta</button>
+                        </div>
+                    </form>
+                    <p class="mt-4 text-center">
+                        ¿Ya tienes una cuenta? <a href="login.html" class="login-link fw-bold">Iniciar Sesión</a>
+                    </p>
+                </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title text-center">Oficina Sur - Patagonia</h5>
-                <p class="card-text">
-                  <i class="bi bi-geo-alt-fill me-2"></i>Av. San Martín 567, Bariloche.<br />
-                  <i class="bi bi-telephone-fill me-2"></i>+54 9 294 455-6789<br />
-                  <i class="bi bi-clock-fill me-2"></i>Lun-Sab: 10:00 - 17:00 hs.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-<!--CONTACTANOS-->
-      <hr class="my-5"> <section id="contacto" class="mb-5">
-        <h2 class="nosotros text-center">Contáctanos</h2>
-        <p class="text-center">
-          ¿Tienes preguntas, sugerencias o necesitas asistencia? Estamos aquí
-          para ayudarte. Puedes contactarnos a través de los siguientes medios:
-        </p>
-        <ul class="list-group list-group-flush mx-auto" style="max-width: 500px;"> <li class="list-group-item">
-            <i class="bi bi-envelope-fill me-2"></i>Email:
-            <a href="mailto:info@hornerocars.com">info@hornerocars.com</a>
-          </li>
-          <li class="list-group-item">
-            <i class="bi bi-phone-fill me-2"></i>Teléfono: +54 9 11 5555-1234
-          </li>
-          <li class="list-group-item">
-            <i class="bi bi-whatsapp me-2"></i>WhatsApp: +54 9 11 5555-1234
-          </li>
-          <li class="list-group-item">
-            <i class="bi bi-chat-dots-fill me-2"></i>Chat en vivo (próximamente)
-          </li>
-        </ul>
-        <p class="mt-3 text-center">
-          También puedes rellenar nuestro formulario de contacto en línea, y te
-          responderemos a la brevedad.
-        </p>
-      </section>
     </main>
 
-<!--FOOTER -->
+    <!--FOOTER -->
     <footer>
         <div class="footer-contenido">
             <div class="footer-seccion">
@@ -189,15 +177,13 @@
             <p>&copy; HorneroCars. Todos los derechos reservados.</p>
         </div>
     </footer>
-   
-<!--SCRIPT links-->
-    <script src="../static/js/informacion.js"></script>
-    <script src="../static/js/global.js"></script>
+
     <!--SCRIPT links-->
-     <script
+       <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous">
-    </script>
+      crossorigin="anonymous"
+    ></script>
+    <script src=""></script>
   </body>
 </html>
