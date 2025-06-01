@@ -1,0 +1,129 @@
+/* static/css/vehiculos.css */
+
+/* Estilos para el cuerpo de la página de vehículos */
+body {
+    /* Fuente legible y moderna (ya está en global.css, considera si es necesario aquí) */
+    font-family: 'Segoe UI', sans-serif;
+    /* Color de fondo suave (ya está en global.css) */
+    /* background: #f7f7f7; */ /* Comentado para evitar redundancia si global.css lo maneja */
+    margin: 0;
+    /* padding: 0; Bootstrap containers y main se encargan del padding principal */
+}
+
+/* Estilos para el encabezado de la página de vehículos (dentro de main) */
+/* La estructura HTML actual con clases de Bootstrap (`text-center mb-4`) ya maneja bien esto. */
+/* header {
+    text-align: center;
+    padding: 20px;
+} */
+
+/* Contenedor de los filtros */
+/* La estructura HTML con d-flex y gap (`d-flex justify-content-center gap-3 mb-4`) ya maneja bien esto. */
+/* #filtros {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 20px;
+} */
+
+/* Estilos para los selectores de filtro */
+/* Las clases `form-select w-auto` de Bootstrap ya proveen buen estilo base. Puedes refinar aquí si es necesario. */
+#filtros select {
+    /* padding: 8px 12px; */ /* Bootstrap lo maneja */
+    /* font-size: 16px; */   /* Bootstrap lo maneja */
+    border-radius: 8px; /* Puedes mantener esto si prefieres un radio mayor al de Bootstrap */
+    border: 1px solid #ccc;
+    /* width: auto; */ /* `w-auto` de Bootstrap lo maneja */
+}
+
+/* Contenedor principal de las tarjetas de vehículos */
+#contenedor-vehiculos {
+    /* Se eliminan las propiedades de CSS Grid para dejar que Bootstrap (row/col) maneje el layout. */
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
+
+    /* El 'gap: 20px;' puede ser manejado por la clase 'g-4' de Bootstrap en el HTML (g-4 es 1.5rem). */
+    /* Si necesitas un gap específico de 20px, puedes ajustar g- (ej. g-3 es 1rem) o añadirlo aquí. */
+    /* padding: 20px; El <main class="container my-5"> ya provee padding general. */
+    /* Si necesitas padding adicional solo para este contenedor, puedes añadirlo. */
+}
+
+/* Estilos para cada tarjeta de vehículo */
+/* La clase .card de Bootstrap ya tiene muchos estilos. Aquí complementamos o ajustamos. */
+/* La clase .h-100 (height: 100%) y .shadow-sm ya están aplicadas en el JS, lo cual es bueno. */
+.card { /* Esto se aplica al div con class="card h-100 shadow-sm" */
+    /* background: white; */ /* Bootstrap ya lo hace */
+    /* border-radius: 10px; */ /* Bootstrap tiene su propio radio, puedes sobreescribirlo si quieres uno específico. Por defecto es .375rem */
+    overflow: hidden; /* Mantenlo, es útil para que card-img-top no exceda los bordes redondeados */
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */ /* .shadow-sm de Bootstrap ya aplica una sombra. Esta es más fuerte. Elige una. */
+    transition: transform 0.2s ease; /* Mantenlo para el efecto hover */
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.card:hover {
+    transform: scale(1.02); /* Aumenta ligeramente el tamaño de la tarjeta */
+    /* box-shadow: 0 8px 16px rgba(0,0,0,0.2); */ /* Puedes aumentar la sombra en hover si lo deseas */
+}
+
+/* Estilos para la imagen dentro de la tarjeta */
+/* La clase .card-img-top de Bootstrap ya hace la imagen responsiva y la ajusta arriba. */
+.card .card-img-top {
+    width: 100%; /* Asegura que ocupe todo el ancho de la tarjeta */
+    height: 200px; /* Altura fija para uniformidad. Ajusta según necesites. */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión, recortando si es necesario. */
+}
+
+/* Contenido de texto dentro de la tarjeta - CORREGIDO */
+.card-body { /* Se cambió de .card-content para coincidir con Bootstrap y tu JS */
+    padding: 1rem; /* Espaciado interno estándar de Bootstrap, puedes ajustarlo. */
+    display: flex; /* Usar flexbox para mejor control del contenido interno */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    flex-grow: 1; /* Permite que el card-body crezca para llenar el espacio si la tarjeta tiene altura fija (h-100) */
+}
+
+/* Título del vehículo dentro de la tarjeta - CORREGIDO */
+.card-body .card-title { /* Se cambió de .card-content h3 y se apunta a la clase de Bootstrap */
+    margin-bottom: 0.75rem; /* Estándar de Bootstrap */
+    font-size: 1.25rem; /* Estándar de Bootstrap para h5.card-title */
+    font-weight: bold; /* Puedes añadir si quieres más énfasis */
+}
+
+/* Párrafos de información dentro de la tarjeta - CORREGIDO */
+.card-body .card-text { /* Se cambió de .card-content p y se apunta a la clase de Bootstrap */
+    margin-bottom: 0.5rem; /* Ajusta según el espaciado deseado entre párrafos */
+    font-size: 0.9rem; /* Un poco más pequeño para que quepa más info sin verse apretado */
+    color: #555;
+    line-height: 1.4; /* Mejora la legibilidad */
+}
+
+.card-body .card-text strong {
+    color: #333; /* Hacer el texto en 'strong' un poco más oscuro */
+}
+
+/* Precio - Estilo específico para el h4 del precio */
+.card-body h4.text-primary {
+    margin-top: auto; /* Empuja el precio y el botón hacia abajo si el card-body es flex container y hay espacio */
+    margin-bottom: 1rem; /* Espacio antes del botón */
+    font-size: 1.3rem;
+    font-weight: bold; /* El 'strong' ya lo hace bold, pero por si acaso. */
+}
+
+/* Estilos para el botón de reservar dentro de la tarjeta (ya estaba bien apuntado si estaba dentro de .card-content) */
+/* Ahora se asegura que esté dentro de .card-body */
+.card-body .btn-reserva {
+    /* display: block; */ /* Bootstrap .w-100 (width: 100%) ya lo hace block-level en efecto */
+    /* width: 100%; */  /* Aplicado por .w-100 en el JS */
+    /* margin-top: 15px; */ /* .mt-2 (0.5rem) aplicado en JS. Si quieres 15px, esto sobreescribiría. */
+    padding: 0.6rem 1rem; /* Ajusta el padding para un mejor look & feel */
+    background-color: var(--primary-color); /* Usando tu variable CSS de global.css */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.card-body .btn-reserva:hover {
+    background-color: var(--secondary-color); /* Usando tu variable CSS de global.css */
+}

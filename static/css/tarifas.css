@@ -1,0 +1,132 @@
+ main {
+     padding: 20px;
+     max-width: 1200px;
+     /* Limita el ancho del contenido principal */
+     margin: 20px auto;
+     /* Centra el contenido principal en la página */
+ }
+
+ main h2 {
+     text-align: center;
+     color: #2c3e50;
+     font-size: 2.2rem;
+     margin-top: 40px;
+     margin-bottom: 30px;
+     position: relative;
+     padding-bottom: 10px;
+ }
+
+ main h2::after {
+     /* Pequeña línea decorativa debajo de los títulos */
+     content: '';
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     bottom: 0;
+     width: 80px;
+     height: 3px;
+     background-color: #3498db;
+     border-radius: 2px;
+ }
+
+ body {
+     background-color: beige;
+ }
+
+ .tarifas {
+     align-items: center;
+     display: grid;
+     /* Habilitamos CSS Grid */
+     /* Define las columnas de la rejilla:
+               - repeat(auto-fit, ...): Crea tantas columnas como quepan.
+               - minmax(280px, 1fr): Cada columna tendrá un mínimo de 280px
+                                     y un máximo de 1 fracción del espacio disponible.
+                                     Esto hace que las tarjetas se adapten y se
+                                     ajusten a la siguiente línea si no hay espacio.
+            */
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 20px;
+     /* Espacio entre las tarjetas (tanto horizontal como vertical) */
+     padding: 20px 0;
+     /* Espacio vertical alrededor del grupo de tarjetas */
+     justify-items: center;
+     /* Centra las tarjetas si no ocupan todo el ancho de su celda */
+ }
+
+ .planas,
+ .ofertas {
+     text-align: center;
+     padding: 15px;
+     border: 2px rgba(0, 0, 0, 0.288) solid;
+     transition: 0.4s linear;
+     background-color: bisque;
+ }
+
+ .planas:hover {
+     border-radius: 40px 40px 40px 40px;
+ }
+
+ .ofertas:hover {
+     box-shadow: 11px 11px 13px -5px rgba(0, 0, 0, 0.31);
+ }
+
+ h1 {
+     text-align: center;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+ }
+
+ p,
+ h2 {
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }
+
+ button {
+     margin: 5px;
+     padding: 5px 10px;
+     font-size: medium;
+     font-weight: 600;
+     border: 2px rgb(190, 190, 187) outset;
+     border-radius: 10px;
+     transition: 0.2s linear;
+ }
+
+ button:hover {
+     border-style: inset;
+     background-color: royalblue;
+     color: aliceblue;
+     cursor: pointer;
+ }
+
+
+
+ /* Media Queries para responsividad */
+ @media (max-width: 768px) {
+     main h2 {
+         font-size: 2rem;
+     }
+
+     .contenedor-tarjetas {
+         gap: 20px;
+         /* Reduce el espacio entre tarjetas en pantallas medianas */
+         padding: 15px;
+     }
+ }
+
+ @media (max-width: 600px) {
+     main h2 {
+         font-size: 1.8rem;
+     }
+
+     .contenedor-tarjetas {
+         grid-template-columns: 1fr;
+         /* Una sola columna en pantallas muy pequeñas */
+         padding: 10px;
+     }
+
+     .tarjeta {
+         min-height: auto;
+         /* Desactiva la altura mínima para que se ajuste al contenido */
+         padding: 20px;
+     }
+
+ }

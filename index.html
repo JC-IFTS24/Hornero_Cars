@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hornero Cars</title>
     <link rel="stylesheet" href="static/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -15,13 +18,13 @@
             <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
                 <li id="imagen_Logo">
                     <a href="index.html" >
-                        <img src="static/img/horneroCarsBlanco2.png" height="110" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
+                        <img src="static/img/horneroCarsBlanco2.png" height="95" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
                     </a>
                 </li>
                 <li class="dropdown" id="nosotros">
                     <a href="templates/nosotros.html">Nosotros</a>
                     <div class="dropdown_Contenido" id="drop_nosotros">
-                        <a href="templates/nosotros.html#nosotros">Sobre "Horneros Cars"</a>
+                        <a href="templates/nosotros.html">Sobre "Horneros Cars"</a>
                         <a href="templates/nosotros.html#oficinas">Oficinas</a>
                         <a href="templates/nosotros.html#contacto">Contacto</a>
                     </div>
@@ -29,16 +32,15 @@
                 <li class="dropdown" id="informacion">
                     <a href="templates/informacion.html">Información</a>
                     <div class="dropdown_Contenido">
-                        <a href="templates/informacion.html#vehiculos">Vehiculos</a>
-                        <a href="templates/informacion.html#tarifas">Tarifas</a>
-                        <a href="templates/informacion.html#requisitos">Requisitos</a>
+                        <a href="templates/vehiculos.html">Vehiculos</a>
+                        <a href="templates/informacion.html">Tarifas</a>
+                        <a href="templates/vehiculos.html#requisitos">Requisitos</a>
                     </div>
                 </li>
                 <li class="dropdown" id="reserva">
                     <a href="templates/reserva.html">Hace tu reserva</a>
                 </li>
                 <!--Li vacio para poder jugar con el espacio en distintas medidas con display:none-->
-              
                 <!--MODAL link a js-->
                 <li class="dropdown" id="sesion">
                     <a onclick="abrirModal(event)" href="#" class="sesion">Iniciar Sesión</a>
@@ -51,7 +53,6 @@
                 <span class="cerrar" onclick="cerrarModal()">&times;</span>
                 <img src="static/img/hornerofondoblanco.png" height="110" alt="logo">
                 <h2>Iniciar Sesión</h2>
-
                 <form>
                     <div class="input-container">
                         <i class="fas fa-user"></i>
@@ -70,18 +71,85 @@
                 </form>
             <div class="crear-cuenta">
             ¿No tienes cuenta? 
-            <a href="#">Crear una</a>
+            <a href="templates/registro.html">Crear una</a>
             </div>
             </div>
         </div>
-
     </header>
+
     <!--MAIN section banner index-->
     <main>  
-        <section id="seccion-con-foto"  aria-label="Hornero Cars"> <!-- Aca para poner una foto de presentacion entre el nav y el footer -->
-            
+            <section class="hero-banner">
+            <!--banner izquierda-->
+            <div class="hero-content-wrapper"> <div class="static-banner-left"> 
+                    <!--  <img src="static/img/hornerofondonegro.png" height="110" alt="Hornero Cars Logo Grande">-->
+                    <div class="static-caption">
+                        <h1>Tu viaje comienza con HorneroCars</h1>
+                        <p>Las mejores tarifas</p>
+                    </div>
+                </div>
+                <!--banner derecha (carousel)-->
+                <div class="dynamic-carousel-right"> <div class="carousel-container">
+                        <div class="carousel-slide fade"> 
+                            <img src="static/img/auto1.png" alt="Auto en Alquiler 1">
+                            <div class="carousel-caption"> 
+                                <h2>Deportivos</h2>
+                                <p>Explora la ciudad con estilo.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/auto2.png" alt="Auto en Alquiler 2">
+                            <div class="carousel-caption">
+                                <h2>Compactos</h2>
+                                <p>Agil y estilizado: La ciudad te espera.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/auto3.png" alt="Auto en Alquiler 3">
+                            <div class="carousel-caption">
+                                <h2>Sedanes/Hatchbacks</h2>
+                                <p>Comodidad y Espacio para Cada Aventura</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/auto4.png" alt="Auto en Alquiler 4">
+                            <div class="carousel-caption">
+                                <h2>SUVs/Pick-ups</h2>
+                                <p>Aventura sin Límites: Conquista Cualquier Terreno</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="static/img/van.png" alt="Auto en Alquiler 5">
+                            <div class="carousel-caption">
+                                <h2>Vans/Minivans</h2>
+                                <p>Viajes en Grupo: Todos a Bordo con Comodidad</p>
+                            </div>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <div style="text-align:center; position: absolute; bottom: 20px; width: 100%;">
+                            <span class="dot" onclick="currentSlide(1)"></span> <!--boton clase dot que lo hace circulo-->
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                            <span class="dot" onclick="currentSlide(5)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div> </section>
+        <!--Seccion ALQUILAR AHORA-->
+        <section class="alquilar-ahora-container">
+            <div class="alquilar-ahora-content">
+                <h2>¿Todo listo para el mejor viaje?</h2>
+                <p>Encuentra el auto perfecto para tus necesidades y reserva en minutos.</p>
+                <button id="alquilarAhora" class="btn primary-btn">Alquilar Ahora</button> 
+                </div>
         </section>
     </main>
+
+
+
+
     <!--FOOTER -->
     <footer>
         <div class="footer-contenido">
@@ -94,8 +162,8 @@
             <div class="footer-seccion">
                 <h3>Enlaces Útiles</h3>
                 <ul>
-                    <li><a href="templates/nosotros.html#contacto">Contáctanos</a></li>
-                    <li><a href="templates/serviciosMedicos.html#destinoserviciosMedicos">Reservas</a></li>
+                    <li><a href="templates/nosotros.html">Contáctanos</a></li>
+                    <li><a href="templates/reserva.html">Reservas</a></li>
                     <li><a href="templates/nosotros.html#destinoUbicacion">Oficinas</a></li>
                 </ul>
             </div>
@@ -110,7 +178,9 @@
             <p>&copy; HorneroCars. Todos los derechos reservados.</p>
         </div>
     </footer>
+
     <!--SCRIPT links-->
+    <script src="static/js/script.js"></script>
     <script src="static/js/global.js"></script>
     
 </body>

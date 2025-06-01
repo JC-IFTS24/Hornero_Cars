@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hornero Cars</title>
+    <title>Reserva tu Coche - Hornero Cars</title>
     <link rel="stylesheet" href="../static/css/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/reserva.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--HEADER-->
-    <header>
-        <!--NAV-->
+    <header> 
+<!--NAV-->
         <nav>
-            <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
+            <ul>
                 <li id="imagen_Logo">
                     <a href="../index.html" >
-                        <img src="" height="110" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
-                    </a>
+                        <img src="../static/img/horneroCarsBlanco2.png" height="95" alt="Hornero Cars"> </a>
                 </li>
                 <li class="dropdown">
                     <a href="nosotros.html">Nosotros</a>
@@ -36,35 +37,314 @@
                 <li class="dropdown">
                     <a href="reserva.html">Hace tu reserva</a>
                 </li>
-                <!--Li vacio para poder jugar con el espacio en distintas medidas con display:none-->
-                <li class="dropdown"> 
+                <li class="dropdown">
                     <a href=""></a>
                 </li>
                 <!--MODAL link a js-->
-                <li class="dropdown">
-                    <a href="" class="sesion">Iniciar Sesion</a>
+                <li class="dropdown" id="sesion">
+                    <a onclick="abrirModal(event)" href="#" class="sesion">Iniciar Sesión</a>
                </li>
             </ul>
         </nav>
-        <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
+    <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
+        <div id="modal-login" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <img src="../static/img/hornerofondoblanco.png" height="110" alt="logo">
+                <h2>Iniciar Sesión</h2>
+                <form>
+                    <div class="input-container">
+                        <i class="fas fa-user"></i>
+                        <input name="usuario" id="usuario" type="text" placeholder="Usuario" required>
+                    </div>
+                    <label class="sesionIncorrecta" id="usuarioIncorrecto">Usuario Incorrecto</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock"></i>
+                        <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña" required>
+                    </div>
+                        <label class="sesionIncorrecta" id="contraseñaIncorrecta">Contraseña Incorrecta</label>
+                        <button id="inciarSesionBtn" onclick="iniciarSesion()" type="button">Entrar</button>
+                    <div class="olvide">
+                    <a href="#">¿Olvidaste tu usuario o contraseña?</a>
+                    </div>
+                </form>
+            <div class="crear-cuenta">
+            ¿No tienes cuenta? 
+            <a href="registro.html">Crear una</a>
+            </div>
+            </div>
+        </div>
     </header>
-    <!--MAIN section banner index-->
-    <main>  
-        <section id="reserva" aria-label="Hornero Cars"> <!-- Aca para poner una foto de presentacion entre el nav y el footer -->
-            <h2>Reserva</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Suscipit sed tempore id. Placeat, deserunt. 
-                Provident eum doloribus distinctio voluptas 
-                natus excepturi culpa laudantium in adipisci 
-                dignissimos? Excepturi pariatur labore recusandae?</p>
+
+<!--RESERVA-->
+    <main class="reserva-main">
+        <section class="reserva-header-section">
+            <div class="reserva-header-content">
+                <h1>Tu Reserva, Paso a Paso</h1>
+                <p>Completa los siguientes pasos para encontrar el auto perfecto para tu viaje.</p>
+            </div>
+        </section>
+
+        <div class="progress-bar-container">
+            <div class="progress-step active" id="step1">
+                <span class="step-number">1</span>
+                <span class="step-name">Fechas y Ubicación</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="step2">
+                <span class="step-number">2</span>
+                <span class="step-name">Selección de Vehículo</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="step3">
+                <span class="step-number">3</span>
+                <span class="step-name">Extras y Datos</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="step4">
+                <span class="step-number">4</span>
+                <span class="step-name">Confirmación</span>
+            </div>
+        </div> 
+<!--reserva: PASO 1 -->
+        <section id="reserva-step-1" class="reserva-step active-step">
+            <h2>Paso 1: ¿Cuándo y Dónde?</h2>
+            <form>
+                <div class="form-group">
+                    <label for="pickup-location">Lugar de Recogida:</label>
+                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Ciudad, aeropuerto o dirección" required>
+                </div>
+                <div class="form-group">
+                    <label for="return-location">Lugar de Devolución:</label>
+                    <input type="text" id="return-location" name="return-location" placeholder="Mismo lugar de recogida o diferente">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="same-location" checked>
+                        Mismo lugar de recogida
+                    </label>
+                </div>
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="pickup-date">Fecha de Recogida:</label>
+                        <input type="date" id="pickup-date" name="pickup-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-time">Hora de Recogida:</label>
+                        <input type="time" id="pickup-time" name="pickup-time" value="09:00" required>
+                    </div>
+                </div>
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="return-date">Fecha de Devolución:</label>
+                        <input type="date" id="return-date" name="return-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="return-time">Hora de Devolución:</label>
+                        <input type="time" id="return-time" name="return-time" value="09:00" required>
+                    </div>
+                </div>
+                <button type="button" class="btn primary-btn next-step-btn" data-next-step="2">Buscar Vehículos</button>
+            </form>
+        </section>
+
+<!--reserva: PASO 2 -->
+       <section id="reserva-step-2" class="reserva-step">
+            <h2>Paso 2: Elige tu Vehículo</h2>
+            <div class="car-filter-buttons">
+                <button class="btn filter-btn active" data-filter="all">Todos</button>
+                <button class="btn filter-btn" data-filter="compacto">Compacto</button>
+                <button class="btn filter-btn" data-filter="sedan">Sedán</button>
+                <button class="btn filter-btn" data-filter="van">Van</button>
+                <button class="btn filter-btn" data-filter="camioneta">Camioneta</button>
+            </div>
+
+            <div class="car-selection-grid">
+                <div class="car-card" data-type="compacto">
+                    <img src="../static/img/auto2.png" alt="Compacto 1">
+                    <h3>Compacto 1</h3>
+                    <p>Ideal para la ciudad, bajo consumo.</p>
+                    <ul>
+                        <li><i class="icon-passengers"></i> 4 Pasajeros</li>
+                        <li><i class="icon-luggage"></i> 1 Maleta</li>
+                        <li><i class="icon-transmission"></i> Manual</li>
+                    </ul>
+                    <div class="car-price" data-price="25000">$25000<small>/día</small></div>
+                    <button class="btn primary-btn select-car-btn" data-car-id="1" data-car-name="Compacto 1" data-car-type="Compacto">Seleccionar</button>
+                </div>
+
+                <div class="car-card" data-type="sedan">
+                    <img src="../static/img/auto3.png" alt="Sedan 1">
+                    <h3>Sedan 1</h3>
+                    <p>Confort y espacio para viajes largos.</p>
+                    <ul>
+                        <li><i class="icon-passengers"></i> 5 Pasajeros</li>
+                        <li><i class="icon-luggage"></i> 3 Maletas</li>
+                        <li><i class="icon-transmission"></i> Automático</li>
+                    </ul>
+                    <div class="car-price" data-price="40000">$40000 <small>/día</small></div>
+                    <button class="btn primary-btn select-car-btn" data-car-id="2" data-car-name="Sedan 1" data-car-type="Sedan">Seleccionar</button>
+                </div>
+
+                <div class="car-card" data-type="camioneta">
+                    <img src="../static/img/auto4.png" alt="Camioneta 1">
+                    <h3>Camioneta 1</h3>
+                    <p>Potencia y versatilidad para cualquier terreno.</p>
+                    <ul>
+                        <li><i class="icon-passengers"></i> 5 Pasajeros</li>
+                        <li><i class="icon-luggage"></i> 4 Maletas</li>
+                        <li><i class="icon-transmission"></i> Automático</li>
+                    </ul>
+                    <div class="car-price" data-price="55000">$55000 <small>/día</small></div>
+                    <button class="btn primary-btn select-car-btn" data-car-id="3" data-car-name="Camioneta 1" data-car-type="Camioneta">Seleccionar</button>
+                </div>
+
+                <div class="car-card" data-type="van">
+                    <img src="../static/img/van.png" alt="Van 1">
+                    <h3>Van 1</h3>
+                    <p>Ideal para grupos grandes y mucho equipaje.</p>
+                    <ul>
+                        <li><i class="icon-passengers"></i> 7 Pasajeros</li>
+                        <li><i class="icon-luggage"></i> 5 Maletas</li>
+                        <li><i class="icon-transmission"></i> Automático</li>
+                    </ul>
+                    <div class="car-price" data-price="80000">$80000 <small>/día</small></div>
+                    <button class="btn primary-btn select-car-btn" data-car-id="4" data-car-name="Van 1" data-car-type="Van">Seleccionar</button>
+                </div>
+
+                <div class="car-card" data-type="compacto">
+                    <img src="../static/img/auto2.png" alt="Compacto 2">
+                    <h3>Compacto 2</h3>
+                    <p>Compacto y eficiente, perfecto para el día a día.</p>
+                    <ul>
+                        <li><i class="icon-passengers"></i> 5 Pasajeros</li>
+                        <li><i class="icon-luggage"></i> 2 Maletas</li>
+                        <li><i class="icon-transmission"></i> Manual</li>
+                    </ul>
+                    <div class="car-price" data-price="45000">$45000 <small>/día</small></div>
+                    <button class="btn primary-btn select-car-btn" data-car-id="5" data-car-name="Compacto 2" data-car-type="Compacto">Seleccionar</button>
+                </div>
+
+                <div class="car-card" data-type="sedan">
+                    <img src="../static/img/auto3.png" alt="Sedan 2">
+                    <h3>Sedan 2</h3>
+                    <p>Elegancia y rendimiento en un solo paquete.</p>
+                    <ul>
+                        <li><i class="icon-passengers"></i> 5 Pasajeros</li>
+                        <li><i class="icon-luggage"></i> 3 Maletas</li>
+                        <li><i class="icon-transmission"></i> Automático</li>
+                    </ul>
+                    <div class="car-price" data-price="50000">$50000 <small>/día</small></div>
+                    <button class="btn primary-btn select-car-btn" data-car-id="6" data-car-name="Sedan 2" data-car-type="Sedan">Seleccionar</button>
+                </div>
+
+                <div class="car-card" data-type="camioneta">
+                    <img src="../static/img/auto4.png" alt="Camioneta 2">
+                    <h3>Camioneta 2</h3>
+                    <p>Robusta y confiable, lista para cualquier aventura.</p>
+                    <ul>
+                        <li><i class="icon-passengers"></i> 5 Pasajeros</li>
+                        <li><i class="icon-luggage"></i> 5 Maletas</li>
+                        <li><i class="icon-transmission"></i> Manual</li>
+                    </ul>
+                    <div class="car-price" data-price="50000">$50000 <small>/día</small></div>
+                    <button class="btn primary-btn select-car-btn" data-car-id="7" data-car-name="Camioneta 2" data-car-type="Camioneta">Seleccionar</button>
+                </div>
+            </div>
+            <div class="navigation-buttons">
+                <button type="button" class="btn secondary-btn prev-step-btn" data-prev-step="1">Anterior</button>
+                <button type="button" class="btn primary-btn next-step-btn" data-next-step="3" id="selectCarNextBtn">Continuar</button>
+            </div>
+        </section>
+
+<!--reserva: PASO 3 -->
+        <section id="reserva-step-3" class="reserva-step">
+            <h2>Paso 3: Personaliza tu Reserva y Datos</h2>
+            <form>
+                <h3>Extras y Opciones Adicionales</h3>
+                <div class="extras-grid">
+                    <label class="extra-option">
+                        <input type="checkbox" name="extra" value="gps" data-extra-price="10">
+                        GPS - $10/día
+                    </label>
+                    <label class="extra-option">
+                        <input type="checkbox" name="extra" value="baby-seat" data-extra-price="5">
+                        Silla de Bebé - $5/día
+                    </label>
+                    <label class="extra-option">
+                        <input type="checkbox" name="extra" value="full-insurance" data-extra-price="20">
+                        Seguro Premium - $20/día
+                    </label>
+                    <label class="extra-option">
+                        <input type="checkbox" name="extra" value="additional-driver" data-extra-price="8">
+                        Conductor Adicional - $8/día
+                    </label>
+                </div>
+                <h3>Datos del Conductor Principal</h3>
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="first-name">Nombre:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Apellido:</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <h3>Método de Pago</h3>
+                <div class="payment-options">
+                    <label class="radio-container">
+                        <input type="radio" name="payment-method" value="credit-card" checked>
+                        Tarjeta de Crédito
+                    </label>
+                    <label class="radio-container">
+                        <input type="radio" name="payment-method" value="paypal">
+                        QR
+                    </label>
+                    </div>
+
+                <div class="navigation-buttons">
+                    <button type="button" class="btn secondary-btn prev-step-btn" data-prev-step="2">Anterior</button>
+                    <button type="button" class="btn primary-btn next-step-btn" data-next-step="4">Revisar Reserva</button>
+                </div>
+            </form>
+        </section>
+<!--reserva: PASO 4 -->
+        <section id="reserva-step-4" class="reserva-step">
+            <h2>Paso 4: Confirma tu Reserva</h2>
+            <div class="reservation-summary">
+                <h3>Detalles de la Reserva:</h3>
+                <p><strong>Fechas y Horas:</strong> <span id="summary-dates-times"></span></p>
+                <p><strong>Ubicación:</strong> <span id="summary-location-detail"></span></p>
+                <p><strong>Vehículo Seleccionado:</strong> <span id="summary-car-detail"></span></p>
+                <p><strong>Tipo de Vehículo:</strong> <span id="summary-car-type"></span></p>
+                <p><strong>Extras:</strong> <span id="summary-extras-detail"></span></p>
+                <p><strong>Conductor Principal:</strong> <span id="summary-driver-detail"></span></p>
+                <p><strong>Email:</strong> <span id="summary-email-detail"></span></p>
+                <p><strong>Teléfono:</strong> <span id="summary-phone-detail"></span></p>
+                <hr>
+                <div class="total-price">
+                    <strong>Total a Pagar:</strong> <span id="summary-total">$0.00</span>
+                </div>
+            </div>
+            <div class="navigation-buttons">
+                <button type="button" class="btn secondary-btn prev-step-btn" data-prev-step="3">Modificar</button>
+                <button type="button" class="btn primary-btn confirm-reservation-btn">Confirmar Reserva</button>
+            </div>
         </section>
     </main>
 
-    <!--FOOTER -->
+<!--FOOTER -->
     <footer>
         <div class="footer-contenido">
             <div class="footer-seccion">
-                <a href="templates/nosotros.html">
+                <a href="nosotros.html">
                     <h3>Sobre Nosotros</h3>
                     <p>Información sobre "HorneroCars" y nuestra flota.</p>
                 </a>
@@ -72,9 +352,9 @@
             <div class="footer-seccion">
                 <h3>Enlaces Útiles</h3>
                 <ul>
-                    <li><a href="templates/nosotros.html#contacto">Contáctanos</a></li>
-                    <li><a href="templates/serviciosMedicos.html#destinoserviciosMedicos">Reservas</a></li>
-                    <li><a href="templates/nosotros.html#destinoUbicacion">Oficinas</a></li>
+                    <li><a href="nosotros.html#contacto">Contáctanos</a></li>
+                    <li><a href="reserva.html">Reservas</a></li>
+                    <li><a href="nosotros.html#destinoUbicacion">Oficinas</a></li>
                 </ul>
             </div>
             <div class="footer-seccion footer-social">
@@ -89,7 +369,8 @@
         </div>
     </footer>
     <!--SCRIPT links-->
-    <script src=""></script>
-    
+    <script src="../static/js/global.js"></script>
+        <script src="../static/js/reserva.js"></script>
+
 </body>
 </html>
