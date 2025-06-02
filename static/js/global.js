@@ -7,7 +7,12 @@ function cerrarModal() {
   document.getElementById('modal-login').style.display = 'none';
 }
   
-
+fetch("data/usuarios.json")
+  .then(res => res.json())
+  .then(data => {
+    localStorage.setItem("usuarios", JSON.stringify(data));
+  });
+  
   const adminsValidos = ["Juliano", "Brendo", "Guillermino", "Liliano"]
   const contraseñaAdmin = "julikpo"
   const usuariosCliente = ["Usuario"]
@@ -17,6 +22,7 @@ function cerrarModal() {
   var sesionIniciadaAdmin = false
   var seionIniciadaCliente = false
   var nombreSesion
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
   usuarioInput.addEventListener("focus", () => {
     document.getElementById("usuarioIncorrecto").style.visibility = "hidden";
@@ -27,32 +33,25 @@ function cerrarModal() {
   })
 
 
-  function iniciarSesion(){ 
-  if (adminsValidos.includes(usuarioInput.value) && 
-  contraseñaAdmin.includes(contraseñaInput.value)){
-    alert("Sesión exitosa de admin");
-    cerrarModal()
-    sesionIniciadaAdmin = true
-    nombreSesion = usuarioInput.value
-  }
-
-  if(usuariosCliente.includes(usuarioInput.value) && 
-  contraseñasCliente.includes(contraseñaInput.value)){
-    alert("Sesión exitosa de cliente")
-    cerrarModal()
-    seionIniciadaCliente = true
-    nombreSesion = usuarioInput.value
-  }
-
-  if (!adminsValidos.includes(usuarioInput.value)){
-    document.getElementById("usuarioIncorrecto").style.visibility = "visible";
+  function iniciarSesion(){
+     const usuarioEncontrado = usuarios.find(user => 
+    (user.userId === usuarioInput.value || user.email === usuarioInput.value)
+  );
+     if (usuarioEncontrado && usuarioEncontrado.password === contraseñaInput.value) {
+      alert("sesion exitosa")
+      cerrarModal()
+      sesionIniciadaAdmin = true
     }
-  
-  if(adminsValidos.includes(usuarioInput.value) && 
-  !contraseñaAdmin.includes(contraseñaInput.value)){
-    document.getElementById("contraseñaIncorrecta").style.visibility = "visible";}
-  }
 
+    if(!usuarioEncontrado){
+      document.getElementById("usuarioIncorrecto").style.visibility = "visible";
+    }
+
+    if(usuarioEncontrado && usuarioEncontrado.password !== contraseñaInput.value){
+      document.getElementById("contraseñaIncorrecta").style.visibility = "visible";
+    }
+
+  }
   function personalizarNav(){
     
   }
