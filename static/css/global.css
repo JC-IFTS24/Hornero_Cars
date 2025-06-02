@@ -176,6 +176,93 @@ nav ul li a:active {
     color: #222222; /* Cambia el color del texto cuando el cursor pasa sobre el enlace. */
 }
 
+
+
+.adminNav_ul {
+    display: grid; /* convierte la lista en una grilla. */
+    grid-template-columns: repeat(6, 1fr);  /* crea columnas flexibles de al menos 120px. */
+    grid-template-rows: 120px; /* fija una altura de 120px para la fila. */
+    justify-content: center; /* centra la grilla horizontalmente. */
+    justify-items: center; /* centra el contenido dentro de cada celda. */
+    list-style-type: none; /* elimina los puntos de las listas. */
+    padding: 0; /* elimina el espaciado interior. */
+    
+}  
+
+#reservaNav{
+    grid-column: 2/3;
+}
+
+#vehiculoNav{
+    grid-column: 3/4;
+}
+
+#sucursalNav{
+    grid-column: 4/5;
+}
+
+
+#reportesNav{
+    grid-column: 5/6;
+}
+
+
+#sesionAdmin{
+    grid-column: 6/7;
+}
+
+
+
+.adminNav_ul li {
+    padding: 10px; /* agrega espacio alrededor de los elementos. */
+    text-align: center; /* centra el texto horizontalmente. */
+    line-height: 100px; /*configura el tamaño del texto verticalmente en 100px de alto. */
+     width: 100%;
+}
+
+.adminNav_ul li a {
+    text-decoration: none; /* elimina el subrayado de los enlaces. */
+    color: #ffffff; /* usa el color primario definido antes. */
+    white-space: nowrap; /* evita que el texto se divida en varias líneas. */
+    font-size: 1.3em; /* agranda el texto (1.5 veces el tamaño base). */
+    transition: color 0.3s ease;
+}
+
+.adminNav_ul li a:hover {
+    color: #00bcd4; /* celeste al pasar el mouse */
+}
+
+.adminNav_ul li a:active {
+    color: #26027a; /* Cambia el color cuando se hace clic (estado activo). */
+}
+
+.dropdownAdmin {
+    position: relative; /* El contenedor .dropdown es posicionado relativamente (clave para posicionar el menú desplegable dentro). */
+    display: inline-block; /* inline-block: permite que el contenedor se ajuste a su contenido, pero se comporte como bloque. */
+}
+
+
+
+#sesionAdmin {
+    color: #f78e34;
+     
+    transition: background-color 0.3s, color 0.3s;/* Establece un color de texto. */ 
+    text-decoration: none; /* Elimina el subrayado por defecto del enlace. */
+    cursor: pointer; /* Cambia el cursor a una mano, indicando que el elemento es clickeable. */
+   /* Establece el tamaño de la fuente a 1.5 veces el tamaño de fuente predeterminado. */
+    font-weight: bold; /* Hace que el texto sea en negrita. */
+    border: 0px solid rgb(63, 148, 205);
+    border-radius: 6px;
+    padding: 5px;
+}
+
+
+#sesionAdmin:hover {
+background-color: #ef5350; /* rojo más fuerte al pasar el mouse */
+    color: white;
+}
+
+
 /*-- MODAL ----------------------------------------------------------*/
 
 .modal {
@@ -191,7 +278,7 @@ nav ul li a:active {
 
 .modal-contenido img {
   display: block;
-  margin: 0 auto 10px;
+  margin: 0 auto 20px;
 }
 
 
@@ -201,6 +288,7 @@ background-color: #222222; /* Fondo negro */
   padding: 30px 20px;
   border-radius: 10px;
   width: 320px;
+  height: 550px;
   position: relative;
   font-family: sans-serif;
   color: #fff; /* Texto blanco */
@@ -208,7 +296,7 @@ background-color: #222222; /* Fondo negro */
 
 .modal-contenido h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #f78e34; /* Color principal para el título */
 }
 
@@ -216,7 +304,7 @@ background-color: #222222; /* Fondo negro */
   display: flex;
   align-items: center;
   border-bottom: 1px solid #666; /* Línea gris */
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   padding: 5px 0;
 }
 
@@ -263,7 +351,7 @@ background-color: #222222; /* Fondo negro */
   color: white;
   border: none;
   padding: 10px;
-  margin: 20px auto 10px;
+  margin: 15px auto 15px;
   display: block;
   border-radius: 4px;
   cursor: pointer;
@@ -279,7 +367,7 @@ background-color: #222222; /* Fondo negro */
 .olvide {
   text-align: center;
   font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .olvide a {
@@ -303,7 +391,7 @@ background-color: #222222; /* Fondo negro */
 .crear-cuenta {
   text-align: center;
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-top: 1px solid #444;
   padding-top: 10px;
 }
