@@ -1,17 +1,25 @@
-* {                         /*selecciona todos los elementos. */
+ * {                         /*selecciona todos los elementos. */
     box-sizing: border-box;       /*hace que el padding y el border se incluyan dentro del ancho y alto total del elemento. 
-                                        Evita desbordes y facilita diseño con medidas precisas. */  
+                                        Evita desbordes y facilita diseño con medidas precisas.  */
+    margin: 0;
+    padding: 0;
 }
 
 
 
 body{
-    background-color: #f7f7f7; /* Cambia el color de fondo del body (la página completa) a un gris muy claro. */
+    background-color: #ffffff; /* Cambia el color de fondo del body (la página completa) a un gris muy claro. */
+    font-family: 'Montserrat';
+
+
+
 }
 
 :root { /* :root es el selector del elemento raíz (html). */
-    --primary-color: #5784c7;/*Colores base para la pagina web guardados en variable */
-    --secondary-color: #195c7d; /* Estas variables se pueden reutilizar con var(--primary-color). */
+    --primary-color: #bf8850;/*Colores base para la pagina web guardados en variable */
+    --secondary-color: #5b300e; /* Estas variables se pueden reutilizar con var(--primary-color). */
+    --tercer-color: #3c2106;
+
 }
 
 /*HEADER--------------------------------------------------------------------------------------------*/
@@ -23,40 +31,71 @@ nav {
                         el que tiene mas es el que se visualiza.
                          Z-INDEX: 1000 Define un nivel de apilamiento alto para que la barra 
                          esté por encima de otros elementos si se superponen.*/
+    font-family: 'Segoe UI', sans-serif;
     
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+background-color: #222222;
+    margin-bottom: 5px;
+
     
 }
 
 nav ul {
     display: grid; /* convierte la lista en una grilla. */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));  /* crea columnas flexibles de al menos 120px. */
+    grid-template-columns: repeat(6, 1fr);  /* crea columnas flexibles de al menos 120px. */
     grid-template-rows: 120px; /* fija una altura de 120px para la fila. */
     justify-content: center; /* centra la grilla horizontalmente. */
     justify-items: center; /* centra el contenido dentro de cada celda. */
     list-style-type: none; /* elimina los puntos de las listas. */
     padding: 0; /* elimina el espaciado interior. */
-    background-image: linear-gradient(to bottom right, rgba(213, 229, 238, 0.9), rgba(162, 227, 247, 0.444));
+    
 }                       /* aplica un degradado suave como fondo de la barra. */
 
 #imagen_Logo{
     overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor del logo. */
+    grid-column: 1/2;
+    padding-bottom: 5px;
+
 }
+
+
+
+#nosotros{
+    grid-column: 2/3;
+}
+
+#informacion{
+    grid-column: 3/4;
+}
+
+#reserva{
+    grid-column: 4/5;
+}
+
+
+#sesion{
+    grid-column: 6/7;
+}
+
+
 
 nav ul li {
     padding: 10px; /* agrega espacio alrededor de los elementos. */
     text-align: center; /* centra el texto horizontalmente. */
     line-height: 100px; /*configura el tamaño del texto verticalmente en 100px de alto. */
+     width: 100%;
 }
 
 nav ul li a {
     text-decoration: none; /* elimina el subrayado de los enlaces. */
-    color: var(--primary-color); /* usa el color primario definido antes. */
+    color: #ffffff; /* usa el color primario definido antes. */
     white-space: nowrap; /* evita que el texto se divida en varias líneas. */
-    font-size: 1.5em; /* agranda el texto (1.5 veces el tamaño base). */
+    font-size: 1.3em; /* agranda el texto (1.5 veces el tamaño base). */
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: var(--secondary-color); /* Cambia el color del enlace al pasar el mouse (hover). */
+     color: #f78e34; /* Cambia el color del enlace al pasar el mouse (hover). */
     
 }
 
@@ -69,10 +108,15 @@ nav ul li a:active {
     display: inline-block; /* inline-block: permite que el contenedor se ajuste a su contenido, pero se comporte como bloque. */
 }
 
+
+
 .dropdown_Contenido {
     display: none; /* Oculta el elemento por defecto. La idea es que este menú solo se muestre cuando se active la clase show-dropdown. */
     position: absolute; /* Coloca el menú en una posición absoluta con respecto al primer elemento padre con posición relativa. */
-    background-color: #f9f9f9; /* Establece el color de fondo del dropdown */
+    background-color: #222222;
+      /* Establece el color de fondo del dropdown */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    border-radius: 4px;
     min-width: 160px; /* Define un ancho mínimo de 160 píxeles para el dropdown. */
     z-index: 1000; /* Define el índice de apilamiento, asegura que el dropdown se muestre por encima de elementos con un índice menor */
     top: 100%; /* Coloca el dropdown justo debajo del contenedor del elemento que lo activa. */
@@ -94,48 +138,654 @@ nav ul li a:active {
     }
 }
 
-.show-dropdown .dropdown_Contenido {
-    display: block;  /* Hace que el menú se muestre como un bloque (es decir, visible) */
-}
-
 .dropdown_Contenido a {
-    color:var(--secondary-color); /* Aplica el color de texto definido en una variable */
-    padding: 12px 16px; /* Aplica un padding de 12 píxeles en el eje vertical y 16 píxeles en el eje horizontal */
+    color: #ffffff;
+    transition: background-color 0.3s; /* Aplica el color de texto definido en una variable */
+    padding: px 16px; /* Aplica un padding de 12 píxeles en el eje vertical y 16 píxeles en el eje horizontal */
     text-decoration: none; /* Elimina el subrayado por defecto de los enlaces. */
     display: block; /*  Hace que los enlaces se comporten como bloques, ocupando toda la línea. */
+
 }
 
 .dropdown_Contenido a:hover {
-    background-color: #f1f1f1; /* Cambia el color de fondo del enlace a un gris claro cuando el cursor pasa sobre él. */
+    background-color: #f78e34;
+    color: #222; /* Cambia el color de fondo del enlace a un gris claro cuando el cursor pasa sobre él. */
 }
 
 .dropdown:hover .dropdown_Contenido {
-    display: block; /* Muestra el contenido del dropdown cuando el usuario pasa el cursor sobre el contenedor .dropdown. */
-}
-
-
-.dropbtn{
-    background-color:#29abe2; /* Establece un color de fondo para el botón. */
-    color: #ffffff; /* Establece el color del texto */
-    border: 1px solid #02577a; /* Aplica un borde de 1 píxel con un color al botón. */
+     /* Muestra el contenido del dropdown cuando el usuario pasa el cursor sobre el contenedor .dropdown. */
+    display: inline-block; /* convierte la lista en una grilla. */
+ width: 100%;
 }
 
 .sesion {
-    color: rgb(0, 18, 69); /* Establece un color de texto. */
+    color: #f78e34;
+    transition: background-color 0.3s, color 0.3s;/* Establece un color de texto. */ 
     text-decoration: none; /* Elimina el subrayado por defecto del enlace. */
     cursor: pointer; /* Cambia el cursor a una mano, indicando que el elemento es clickeable. */
-    font-size: 1.5em; /* Establece el tamaño de la fuente a 1.5 veces el tamaño de fuente predeterminado. */
+    font-size: 1.3em; /* Establece el tamaño de la fuente a 1.5 veces el tamaño de fuente predeterminado. */
     font-weight: bold; /* Hace que el texto sea en negrita. */
+    border: 0px solid peru;
+    border-radius: 6px;
+    padding: 5px;
 }
 
+
 .sesion:hover {
-    color: darkred; /* Cambia el color del texto cuando el cursor pasa sobre el enlace. */
+    background-color: #f78e34;
+    color: #222222; /* Cambia el color del texto cuando el cursor pasa sobre el enlace. */
 }
 
 /*-- MODAL ----------------------------------------------------------*/
 
+.modal {
+  display: none; /* Necesario para centrar */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semitransparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+.modal-contenido img {
+  display: block;
+  margin: 0 auto 10px;
+}
+
+
+.modal-contenido {
+background-color: #222222; /* Fondo negro */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 320px;
+  position: relative;
+  font-family: sans-serif;
+  color: #fff; /* Texto blanco */
+}
+
+.modal-contenido h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f78e34; /* Color principal para el título */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #666; /* Línea gris */
+  margin-bottom: 5px;
+  padding: 5px 0;
+}
+
+.input-container i {
+  margin-right: 10px;
+  color: #f78e34; /* Ícono en color naranja */
+}
+
+.input-container input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0;
+  color: #fff; /* Texto blanco */
+}
+
+.modal-contenido .sesionIncorrecta {
+  color: #ff5c5c;
+  font-size: 12px;
+  visibility:hidden;
+  height: 14px;
+  margin-bottom: 10px;
+}
+
+.modal-contenido input {
+  background-color: #111;
+  color: white;
+  border: none;
+  border-bottom: 2px solid #fff;
+  padding: 10px 10px 10px 35px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.modal-contenido input:focus {
+  border-bottom: 2px solid #f78e34;
+}
+
+#inciarSesionBtn {
+  background-color: #f78e34;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 20px auto 10px;
+  display: block;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+#inciarSesionBtn:hover {
+  background-color: #e66d0b;
+}
+
+.olvide {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.olvide a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.olvide a:hover {
+  text-decoration: underline;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #f78e34;
+  cursor: pointer;
+}
+
+.crear-cuenta {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+
+.crear-cuenta a {
+  color: #f78e34;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.crear-cuenta a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+/* --- Estilos Generales de Botones --- */
+.btn {
+    display: inline-block;
+    padding: 10px 25px; /* Un poco más de padding para que se vean bien */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    border: none; /* Por defecto, sin borde */
+    /* Eliminar el fondo por defecto del botón */
+    background: transparent;
+    color: inherit;
+}
+
+/* Estilo para el botón principal (ej. "Continuar", "Buscar Vehículos", "Seleccionar") */
+.btn.primary-btn {
+    background-color: #ff8c00; /* Naranja principal */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3); /* Sombra para darle profundidad */
+}
+
+.btn.primary-btn:hover {
+    background-color: #e67e00; /* Un naranja ligeramente más oscuro al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+}
+
+/* Estilo para el botón secundario (ej. "Anterior", "Modificar") */
+.btn.secondary-btn {
+    background-color: #f0f0f0; /* Un gris claro para el fondo */
+    color: #555; /* Texto gris oscuro */
+    border: 1px solid #ddd; /* Un borde sutil para definirlo */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.btn.secondary-btn:hover {
+    background-color: #e0e0e0; /* Un gris ligeramente más oscuro al pasar el mouse */
+    color: #333; /* Texto más oscuro */
+    border-color: #ccc; /* Borde más oscuro */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+}
+
+
+
+/* ------------------ Banner Principal (HERO BANNER)------------------------------------------- */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Altura total incluyendo carousel */
+    overflow: hidden;
+    margin-bottom: 40px;
+    background-color: #EFEFEF; 
+    
+}
+
+.hero-content-wrapper {
+    display: flex; /* Usamos Flexbox para la división */
+    width: 100%;
+    height: 100%;
+    align-items: stretch; /* Estira ambos lados para que tengan la misma altura */
+}
+
+.static-banner-left {
+    flex: 1; /* Ocupa la mitad del espacio disponible */
+    background-color: #333; /* Color de fondo para la sección del logo */
+    color: white;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido verticalmente */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    padding: 20px;
+    text-align: center;
+    background-image: url('../img/ruta40.webp'); 
+    background-size: cover; /* Asegura que la imagen cubra todo el área sin distorsionarse */
+    background-position: center; /* Centra la imagen en el div */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+  
+}
+
+.static-banner-left img {
+    max-width: 80%; /* Ajusta el tamaño del logo */
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.static-banner-left h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.static-banner-left p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+
+/* --- Estilos para el texto del banner --- */
+.static-caption h1 {
+    font-size: 2.5em; /* Ajusta el tamaño de la fuente del título */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+.static-caption p {
+    font-size: 1.4em; /* Ajusta el tamaño de la fuente del párrafo */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+    color: #ccc;
+}
+
+
+.dynamic-carousel-right { /*dynamic para diferenciarlo de la parte izquierda static */
+    flex: 1; 
+    position: relative; /* Importante para que el carrusel dentro funcione */
+    height: 100%; 
+}
+
+/* ------- Banner derecha (CAROUSEL) ---------------*/ 
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Esto es CLAVE: el carrusel ahora toma el 100% de la altura de su padre (.dynamic-carousel-right) */
+    margin: auto;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%; /* Ajusta la altura del slide individual al 100% de su contenedor */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%; /* La imagen también al 100% de su slide */
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    box-sizing: border-box;
+    z-index: 5; 
+}
+
+.carousel-caption h2{
+    color: white;
+    margin-top: 0;
+    font-size: 2.3em;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+
+
+/* --- Medias para hacer la division del banner responsive --------- */
+
+@media (max-width: 992px) { /* --- Para tablets y moviles grandes (? --- */
+    .hero-content-wrapper {
+        flex-direction: column; /* Cambia a una columna en pantallas más pequeñas */
+        height: auto; /* Permite que la altura se ajuste al contenido */
+    }
+
+    .static-banner-left, .dynamic-carousel-right {
+        flex: none; /* Elimina la proporción flexible */
+        width: 100%; 
+        height: auto; 
+    }
+
+    .static-banner-left {
+        padding: 40px 20px;
+    }
+
+    .static-banner-left img {
+        max-width: 60%; /* Ajusta el tamaño del logo para móviles */
+        margin-bottom: 15px;
+    }
+
+    .static-banner-left h1 {
+        font-size: 2em;
+    }
+
+    .static-banner-left p {
+        font-size: 1em;
+    }
+
+    .dynamic-carousel-right {
+        height: 400px; 
+    }
+
+    .hero-banner {
+        height: auto; /* La altura del banner se ajusta a sus contenidos */
+    }
+}
+
+
+@media (max-width: 576px) { /* --- Para moviles chicos (? --- */
+    .static-banner-left h1 {
+        font-size: 1.8em;
+    }
+    .static-banner-left p {
+        font-size: 0.9em;
+    }
+    .dynamic-carousel-right {
+        height: 300px; /* Reduce aún más la altura del carrusel */
+    }
+    .carousel-caption {
+        padding: 10px 20px;
+        bottom: 30px;
+    }
+    .carousel-caption h2 {
+        font-size: 1.5em;
+    }
+    .carousel-caption p {
+        font-size: 0.9em;
+    }
+}
+
+/* Flechas de navegación del carrusel */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  margin-left: 2px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Puntos indicadores del carrusel */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Animación de fade para el carrusel */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+/* ------ Contenedor para "Alquilar Ahora" -----------*/
+.alquilar-ahora-container {
+    background-color: #f8f8f8;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.alquilar-ahora-content h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.alquilar-ahora-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Estilo para el botón "Alquilar Ahora" --- */
+.btn.primary-btn {
+    /* Colores en tono naranja */
+    background-color: #ff8c00; 
+    color: #fff; 
+
+    /* Espaciado y forma */
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    /* Tipografía */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    /* Transiciones para interacción */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+    /* Sombra para profundidad */
+    box-shadow: 0 4px 8px rgba(255, 140, 0, 0.2); /* Sombra sutil con el mismo tono naranja */
+}
+
+    /* HOVERS boton alquilar ahora */
+    .btn.primary-btn:hover {
+        background-color: #e67e00; 
+        transform: translateY(-2px); /* Pequeño levantamiento */
+        box-shadow: 0 6px 12px rgba(255, 140, 0, 0.3); /* Sombra más pronunciada */
+    }
+
+    .btn.primary-btn:active {
+        background-color: #cc7000; 
+        transform: translateY(0); /* Vuelve a su posición original */
+        box-shadow: 0 2px 4px rgba(255, 140, 0, 0.1); /* Sombra reducida */
+    }
 
 
 /*--FOOTER  ----------------------------------------------------------------------------------------------*/
 
+footer {
+    background-color: #f78e34;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    padding: 20px 0;
+    text-align: center;
+}
 
+.footer-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.footer-seccion {
+    flex: 1;
+    margin: 20px;
+    min-width: 200px;
+}
+.footer-seccion a{
+text-decoration: none;
+color: inherit;
+}
+
+.footer-seccion h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer-seccion p,
+.footer-seccion ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-seccion ul {
+    list-style-type: none;
+}
+
+.footer-seccion ul li {
+    margin: 5px 0;
+}
+
+.footer-seccion ul li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-seccion ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-seccion .footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-seccion .footer-social a img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-boton {
+    margin-top: 20px;
+}
+
+.footer-seccion.footer-social a {
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-seccion.footer-social a .fa-facebook {
+    color: #3b5998; /* Color inicial de Facebook */
+}
+
+.footer-seccion.footer-social a .fa-twitter {
+    color: #00acee; /* Color inicial de Twitter */
+}
+
+.footer-seccion.footer-social a .fa-instagram {
+    color: #e4405f; /* Color inicial de Instagram */
+}
+
+.footer-seccion.footer-social a:hover .fa-facebook {
+    color: #1d305e; /* Color de Facebook al pasar el ratón por encima */
+}
+
+.footer-seccion.footer-social a:hover .fa-twitter {
+    color: #007bb5; /* Color de Twitter al pasar el ratón por encima */
+}
+
+.footer-seccion.footer-social a:hover .fa-instagram {
+    color: #bc2a8d; /* Color de Instagram al pasar el ratón por encima */
+}
+
+
+body.registro-page footer.bg-dark {
+    border-top: 1px solid #495057; /* Línea sutil para separar del contenido oscuro */
+}
