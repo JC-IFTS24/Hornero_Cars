@@ -247,10 +247,16 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="mis-reservas-content" role="tabpanel" aria-labelledby="nav-mis-reservas">
-                        <h4>Tu Historial de Reservas</h4>
-                        <p>Aquí podrás ver tus reservas activas y pasadas.</p>
+                  <div class="tab-pane fade" id="mis-reservas-content" role="tabpanel" aria-labelledby="nav-mis-reservas">
+                        <h4 class="mb-4">Tu Historial de Reservas</h4>
+                        
+                        <div id="contenedor-mis-reservas" class="row gy-4">
+                            </div>
+
+                        <div id="mensaje-no-hay-reservas" class="alert alert-info mt-4" style="display: none;">
+                            <i class="bi bi-info-circle-fill me-2"></i>Aún no tienes reservas realizadas. ¿Qué esperas para <a href="#" onclick="activarPestana('nav-hacer-reserva'); return false;">hacer tu primera reserva</a>?
                         </div>
+                    </div>
                 </div>
             </main>
         </div>
