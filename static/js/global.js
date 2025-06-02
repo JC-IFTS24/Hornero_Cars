@@ -34,7 +34,9 @@ fetch("data/usuarios.json")
 
 
   function iniciarSesion(){
-     const usuarioEncontrado = usuarios.find(user => user.userId === usuarioInput.value);
+     const usuarioEncontrado = usuarios.find(user => 
+    (user.userId === usuarioInput.value || user.email === usuarioInput.value)
+  );
      if (usuarioEncontrado && usuarioEncontrado.password === contraseñaInput.value) {
       alert("sesion exitosa")
       cerrarModal()
