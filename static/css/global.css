@@ -464,7 +464,7 @@ background-color: #222222; /* Fondo negro */
 .hero-banner {
     position: relative;
     width: 100%;
-    height: 600px; /* Altura total incluyendo carousel */
+    height: 300px; /* Altura total incluyendo carousel */
     overflow: hidden;
     margin-bottom: 40px;
     background-color: #EFEFEF; 
@@ -492,13 +492,13 @@ background-color: #222222; /* Fondo negro */
     background-size: cover; /* Asegura que la imagen cubra todo el área sin distorsionarse */
     background-position: center; /* Centra la imagen en el div */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
-  
+    
 }
 
 .static-banner-left img {
     max-width: 80%; /* Ajusta el tamaño del logo */
     height: 150px;
-    margin-bottom: 20px;
+    
 }
 
 .static-banner-left h1 {
@@ -529,32 +529,25 @@ background-color: #222222; /* Fondo negro */
 
 
 .dynamic-carousel-right { /*dynamic para diferenciarlo de la parte izquierda static */
-    flex: 1; 
-    position: relative; /* Importante para que el carrusel dentro funcione */
-    height: 100%; 
+ 
 }
 
 /* ------- Banner derecha (CAROUSEL) ---------------*/ 
 .carousel-container {
     position: relative;
-    width: 100%;
-    height: 100%; /* Esto es CLAVE: el carrusel ahora toma el 100% de la altura de su padre (.dynamic-carousel-right) */
+    width: 70%;
+    height: 70%; /* Esto es CLAVE: el carrusel ahora toma el 100% de la altura de su padre (.dynamic-carousel-right) */
     margin: auto;
 }
 
 .carousel-slide {
-    display: none;
-    width: 100%;
-    height: 100%; /* Ajusta la altura del slide individual al 100% de su contenedor */
-    position: absolute;
-    top: 0;
-    left: 0;
+    
 }
 
 .carousel-slide img {
     width: 100%;
     height: 100%; /* La imagen también al 100% de su slide */
-    object-fit: cover;
+    object-fit: fill;
     display: block;
 }
 
