@@ -1,0 +1,358 @@
+/* --- Estilos Generales de Botones --- */
+.btn {
+    display: inline-block;
+    padding: 10px 25px; /* Un poco más de padding para que se vean bien */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    border: none; /* Por defecto, sin borde */
+    /* Eliminar el fondo por defecto del botón */
+    background: transparent;
+    color: inherit;
+}
+
+/* Estilo para el botón principal (ej. "Continuar", "Buscar Vehículos", "Seleccionar") */
+.btn.primary-btn {
+    background-color: #ff8c00; /* Naranja principal */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3); /* Sombra para darle profundidad */
+}
+
+.btn.primary-btn:hover {
+    background-color: #e67e00; /* Un naranja ligeramente más oscuro al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+}
+
+/* Estilo para el botón secundario (ej. "Anterior", "Modificar") */
+.btn.secondary-btn {
+    background-color: #f0f0f0; /* Un gris claro para el fondo */
+    color: #555; /* Texto gris oscuro */
+    border: 1px solid #ddd; /* Un borde sutil para definirlo */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.btn.secondary-btn:hover {
+    background-color: #e0e0e0; /* Un gris ligeramente más oscuro al pasar el mouse */
+    color: #333; /* Texto más oscuro */
+    border-color: #ccc; /* Borde más oscuro */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+}
+
+
+
+/* ------------------ Banner Principal (HERO BANNER)------------------------------------------- */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Altura total incluyendo carousel */
+    overflow: hidden;
+    margin-bottom: 40px;
+    background-color: #EFEFEF; 
+    
+}
+
+.hero-content-wrapper {
+    display: flex; /* Usamos Flexbox para la división */
+    width: 100%;
+    height: 100%;
+    align-items: stretch; /* Estira ambos lados para que tengan la misma altura */
+}
+
+.static-banner-left {
+    flex: 1; /* Ocupa la mitad del espacio disponible */
+    background-color: #333; /* Color de fondo para la sección del logo */
+    color: white;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido verticalmente */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    padding: 20px;
+    text-align: center;
+    background-image: url('../img/ruta40.webp'); 
+    background-size: cover; /* Asegura que la imagen cubra todo el área sin distorsionarse */
+    background-position: center; /* Centra la imagen en el div */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+  
+}
+
+.static-banner-left img {
+    max-width: 80%; /* Ajusta el tamaño del logo */
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.static-banner-left h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.static-banner-left p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+
+/* --- Estilos para el texto del banner --- */
+.static-caption h1 {
+    font-size: 2.5em; /* Ajusta el tamaño de la fuente del título */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+.static-caption p {
+    font-size: 1.4em; /* Ajusta el tamaño de la fuente del párrafo */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+    color: #ccc;
+}
+
+
+.dynamic-carousel-right { /*dynamic para diferenciarlo de la parte izquierda static */
+    flex: 1; 
+    position: relative; /* Importante para que el carrusel dentro funcione */
+    height: 100%; 
+}
+
+/* ------- Banner derecha (CAROUSEL) ---------------*/ 
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Esto es CLAVE: el carrusel ahora toma el 100% de la altura de su padre (.dynamic-carousel-right) */
+    margin: auto;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%; /* Ajusta la altura del slide individual al 100% de su contenedor */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%; /* La imagen también al 100% de su slide */
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    box-sizing: border-box;
+    z-index: 5; 
+}
+
+.carousel-caption h2{
+    color: white;
+    margin-top: 0;
+    font-size: 2.3em;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+
+
+/* --- Medias para hacer la division del banner responsive --------- */
+
+@media (max-width: 992px) { /* --- Para tablets y moviles grandes (? --- */
+    .hero-content-wrapper {
+        flex-direction: column; /* Cambia a una columna en pantallas más pequeñas */
+        height: auto; /* Permite que la altura se ajuste al contenido */
+    }
+
+    .static-banner-left, .dynamic-carousel-right {
+        flex: none; /* Elimina la proporción flexible */
+        width: 100%; 
+        height: auto; 
+    }
+
+    .static-banner-left {
+        padding: 40px 20px;
+    }
+
+    .static-banner-left img {
+        max-width: 60%; /* Ajusta el tamaño del logo para móviles */
+        margin-bottom: 15px;
+    }
+
+    .static-banner-left h1 {
+        font-size: 2em;
+    }
+
+    .static-banner-left p {
+        font-size: 1em;
+    }
+
+    .dynamic-carousel-right {
+        height: 400px; 
+    }
+
+    .hero-banner {
+        height: auto; /* La altura del banner se ajusta a sus contenidos */
+    }
+}
+
+
+@media (max-width: 576px) { /* --- Para moviles chicos (? --- */
+    .static-banner-left h1 {
+        font-size: 1.8em;
+    }
+    .static-banner-left p {
+        font-size: 0.9em;
+    }
+    .dynamic-carousel-right {
+        height: 300px; /* Reduce aún más la altura del carrusel */
+    }
+    .carousel-caption {
+        padding: 10px 20px;
+        bottom: 30px;
+    }
+    .carousel-caption h2 {
+        font-size: 1.5em;
+    }
+    .carousel-caption p {
+        font-size: 0.9em;
+    }
+}
+
+/* Flechas de navegación del carrusel */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  margin-left: 2px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Puntos indicadores del carrusel */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Animación de fade para el carrusel */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+/* ------ Contenedor para "Alquilar Ahora" -----------*/
+.alquilar-ahora-container {
+    background-color: #f8f8f8;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.alquilar-ahora-content h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.alquilar-ahora-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Estilo para el botón "Alquilar Ahora" --- */
+.btn.primary-btn {
+    /* Colores en tono naranja */
+    background-color: #ff8c00; 
+    color: #fff; 
+
+    /* Espaciado y forma */
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    /* Tipografía */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    /* Transiciones para interacción */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+    /* Sombra para profundidad */
+    box-shadow: 0 4px 8px rgba(255, 140, 0, 0.2); /* Sombra sutil con el mismo tono naranja */
+}
+
+    /* HOVERS boton alquilar ahora */
+    .btn.primary-btn:hover {
+        background-color: #e67e00; 
+        transform: translateY(-2px); /* Pequeño levantamiento */
+        box-shadow: 0 6px 12px rgba(255, 140, 0, 0.3); /* Sombra más pronunciada */
+    }
+
+    .btn.primary-btn:active {
+        background-color: #cc7000; 
+        transform: translateY(0); /* Vuelve a su posición original */
+        box-shadow: 0 2px 4px rgba(255, 140, 0, 0.1); /* Sombra reducida */
+    }
