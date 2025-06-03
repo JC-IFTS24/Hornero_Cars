@@ -103,13 +103,13 @@ function personalizarNav() {
     navAdministrador.querySelector("ul")?.remove();
     navAdministrador.innerHTML = `
       <ul class="adminNav_ul">
-        <li id="imagen_Logo">
+        <li id="imagen_LogoAdmin">
           <a href="admin_dashboard.html">
             <img src="../static/img/horneroCarsBlanco2.png" height="95" alt="Hornero Cars">
           </a>
         </li>
         <li class="dropdown" id="sesionAdmin">
-          <a href="#" class="sesion">${usuarioActivo.userId} ▼</a>
+          <a href="#" class="sesion" >${usuarioActivo.userId} ▼</a>
           <div class="dropdown_Contenido">
             <a ></a>
             <a ></a>

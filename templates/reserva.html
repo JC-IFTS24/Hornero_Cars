@@ -11,42 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header> 
-<!--NAV-->
+    <!--HEADER-->
+    <header>
+    <!--NAV-->
         <nav>
-            <ul>
+            <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
                 <li id="imagen_Logo">
                     <a href="../index.html" >
-                        <img src="../static/img/horneroCarsBlanco2.png" height="95" alt="Hornero Cars"> </a>
+                        <img src="../static/img/horneroCarsBlanco2.png" height="95" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
+                    </a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="nosotros">
                     <a href="nosotros.html">Nosotros</a>
-                    <div class="dropdown_Contenido">
-                        <a href="nosotros.html#nosotros">Sobre "Horneros Cars"</a>
+                    <div class="dropdown_Contenido" id="drop_nosotros">
+                        <a href="nosotros.html">Sobre "Horneros Cars"</a>
                         <a href="nosotros.html#oficinas">Oficinas</a>
                         <a href="nosotros.html#contacto">Contacto</a>
                     </div>
-                <li class="dropdown" >
+                </li>
+                <li class="dropdown" id="informacion">
                     <a href="informacion.html">Información</a>
                     <div class="dropdown_Contenido">
-                        <a href="informacion.html#vehiculos">Vehiculos</a>
-                        <a href="informacion.html#tarifas">Tarifas</a>
+                        <a href="vehiculos.html">Vehiculos</a>
+                        <a href="informacion">Tarifas</a>
                         <a href="informacion.html#requisitos">Requisitos</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="reserva">
                     <a href="reserva.html">Hace tu reserva</a>
-                </li>
-                <li class="dropdown">
-                    <a href=""></a>
-                </li>
+                </li>              
                 <!--MODAL link a js-->
                 <li class="dropdown" id="sesion">
                     <a onclick="abrirModal(event)" href="#" class="sesion">Iniciar Sesión</a>
                </li>
             </ul>
         </nav>
-    <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
+        <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
         <div id="modal-login" class="modal">
             <div class="modal-contenido">
                 <span class="cerrar" onclick="cerrarModal()">&times;</span>

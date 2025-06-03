@@ -58,7 +58,12 @@ nav ul {
 
 }
 
+#imagen_LogoAdmin{
+    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor del logo. */
+    grid-column: 1/2;
+    padding-bottom: 5px;
 
+}
 
 #nosotros{
     grid-column: 2/3;
@@ -189,22 +194,6 @@ nav ul li a:active {
     
 }  
 
-#reservaNav{
-    grid-column: 2/3;
-}
-
-#vehiculoNav{
-    grid-column: 3/4;
-}
-
-#sucursalNav{
-    grid-column: 4/5;
-}
-
-
-#reportesNav{
-    grid-column: 5/6;
-}
 
 
 #sesionAdmin{
@@ -877,3 +866,158 @@ color: inherit;
 body.registro-page footer.bg-dark {
     border-top: 1px solid #495057; /* Línea sutil para separar del contenido oscuro */
 }
+
+
+/* Media query para hacer el menú responsive en pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+
+
+    .adminNav_ul{
+    grid-template-columns: repeat(4, 1fr);  /* crea columnas flexibles de al menos 120px. */
+}
+
+    #imagen_Logo{
+    
+    grid-column: 1/7;
+    
+   
+    }
+
+    #imagen_LogoAdmin{
+    
+    grid-column: 1/5;
+   
+    }
+
+    #nosotros{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+    #informacion{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+    #reserva{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+
+    #sesion{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+      #sesionAdmin{
+            grid-column: 1/5;
+    padding-top: 0px;
+    padding-bottom: 0px;
+          }
+}
+
+
+/* Media query para pantallas medianas */
+/* Media query para hacer el nav vertical en pantallas medianas */
+@media only screen and (min-width: 768px) and (max-width: 1175px) {
+    
+.adminNav_ul{
+    grid-template-columns: repeat(4, 1fr);  /* crea columnas flexibles de al menos 120px. */
+}
+
+    #imagen_Logo{
+    
+    grid-column: 1/7;
+   
+    }
+
+#imagen_LogoAdmin{
+    
+    grid-column: 1/5;
+   
+    }
+
+    #nosotros{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+    #informacion{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+    #reserva{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+
+    #sesion{
+    grid-column: 1/7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+    
+    #sesionAdmin{
+            grid-column: 1/5;
+    padding-top: 0px;
+    padding-bottom: 0px;
+          }
+   }
+          @media only screen and (min-width: 1175px) and (max-width: 1612px) {
+    
+
+nav ul {
+   
+    grid-template-columns: repeat(5, 1fr);  /* crea columnas flexibles de al menos 120px. */
+    
+    
+}  
+.adminNav_ul{
+    grid-template-columns: repeat(4, 1fr);  /* crea columnas flexibles de al menos 120px. */
+}
+
+
+    #imagen_Logo{
+    
+    grid-column: 1/2;
+    
+   
+    }
+
+    #imagen_LogoAdmin{
+        grid-column: 1/2;
+    }
+
+    #nosotros{
+    grid-column: 2/3;
+    }
+
+    #informacion{
+    grid-column: 3/4;
+    }
+
+    #reserva{
+    grid-column: 4/5;
+    }
+
+
+    #sesion{
+    grid-column: 5/6;
+
+    }
+
+    #sesionAdmin{
+        grid-column: 4/5;
+    }
+        
+          }
