@@ -5,68 +5,149 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="../static/css/dashboardAdmin.css">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/dashboardAdmin.css">
 </head>
 
 <body>
     <header>
-
+    <!--HEADER-->
+    <header>
+        <!--NAV-->
+        <nav id="nav">
+            <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
+                <li id="imagen_Logo">
+                    <a href="index.html" >
+                        <img src="../static/img/horneroCarsBlanco2.png" height="95" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
+                    </a>
+                </li>
+                <li class="dropdown" id="nosotros">
+                    <a href="templates/nosotros.html">Nosotros</a>
+                    <div class="dropdown_Contenido" id="drop_nosotros">
+                        <a href="templates/nosotros.html">Sobre "Horneros Cars"</a>
+                        <a href="templates/nosotros.html#oficinas">Oficinas</a>
+                        <a href="templates/nosotros.html#contacto">Contacto</a>
+                    </div>
+                </li>
+                <li class="dropdown" id="informacion">
+                    <a href="templates/informacion.html">Información</a>
+                    <div class="dropdown_Contenido">
+                        <a href="templates/vehiculos.html">Vehiculos</a>
+                        <a href="templates/informacion.html">Tarifas</a>
+                        <a href="templates/vehiculos.html#requisitos">Requisitos</a>
+                    </div>
+                </li>
+                <li class="dropdown" id="reserva">
+                    <a href="templates/reserva.html">Hace tu reserva</a>
+                </li>
+                <!--Li vacio para poder jugar con el espacio en distintas medidas con display:none-->
+                <!--MODAL link a js-->
+                <li class="dropdown" id="sesion">
+                    <a onclick="abrirModal(event)" href="#" class="sesion">Iniciar Sesión</a>
+               </li>
+            </ul>
+        </nav>
+        <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
+        <div id="modal-login" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <img src="static/img/hornerofondoblanco.png" height="110" alt="logo">
+                <h2>Iniciar Sesión</h2>
+                <form>
+                    <div class="input-container">
+                        <i class="fas fa-user"></i>
+                        <input name="usuario" id="usuario" type="text" placeholder="Usuario" required>
+                    </div>
+                    <label class="sesionIncorrecta" id="usuarioIncorrecto">Usuario Incorrecto</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock"></i>
+                        <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña" required>
+                    </div>
+                        <label class="sesionIncorrecta" id="contraseñaIncorrecta">Contraseña Incorrecta</label>
+                        <button id="inciarSesionBtn" onclick="iniciarSesion()" type="button">Entrar</button>
+                    <div class="olvide">
+                    <a href="#">¿Olvidaste tu usuario o contraseña?</a>
+                    </div>
+                </form>
+            <div class="crear-cuenta">
+            ¿No tienes cuenta? 
+            <a href="templates/registro.html">Crear una</a>
+            </div>
+            </div>
+        </div>
+    </header>
     </header>
 
     <div class="dashboardAdmin">
         <aside>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary text-start" aria-current="page" href="#">Gestión de
+                    <a class="nav-link btn btn-outline-primary text-start" aria-current="page" href="#"><i data-feather="home"></i>Gestión de
                         Sucursales</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary text-start" href="#">Gestión de Vehículos</a>
+                    <a class="nav-link btn btn-outline-primary text-start" href="#"><i data-feather="truck"></i>Gestión de Vehículos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary text-start" href="#">Gestión de Reservas</a>
+                    <a class="nav-link btn btn-outline-primary text-start" href="#"><i data-feather="calendar"></i>Gestión de Reservas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary text-start" href="#">Consultas y Reportes</a>
+                    <a class="nav-link btn btn-outline-primary text-start" href="#"><i data-feather="bar-chart-2"></i>Consultas y Reportes</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle btn btn-outline-primary text-start" data-bs-toggle="dropdown"
-                        href="#" role="button" aria-expanded="false">Usuario</a>
+                        href="#" role="button" aria-expanded="false"><i data-feather="user"></i>Usuario</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
                 </li>
             </ul>
         </aside>
 
-        <main>
-            <div>
-                <h2 class="progreso">Progreso</h2>
-                <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
-                    aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar bg-success" style="width: 25%"></div>
-                </div><br>
-                <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <div class="progress-bar bg-info" style="width: 50%"></div>
-                </div><br>
-                <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75"
-                    aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar bg-warning" style="width: 75%"></div>
-                </div><br>
-                <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100"
-                    aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar bg-danger" style="width: 100%"></div>
-                </div>
+        <main class="contenido-principal">
+            
+        <div class="card">
+            <h5 class="card-header">Estado de la Página</h5>
+            <div class="card-body">
+                <h5 class="card-title">Activar o desactivar página</h5>
+                <p class="card-text">La página se encuentra publicada.</p>
+                <a href="#" class="btn btn-outline-secondary">Desactivar</a>
             </div>
-        </main>
-    </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Usuarios Registrados</h5>
+            <div class="card-body">
+                <h5 class="card-title">Total de usuarios registrados en la página.</h5>
+                <p class="card-text">800</p>
+                <a href="#" class="btn btn-outline-success">Ver Detalles</a>
+            </div>
+        </div>
 
+        <div class="card">
+            <h5 class="card-header">Usuarios en linea</h5>
+            <div class="card-body">
+                <h5 class="card-title">Mirá los usuarios en línea en este momento</h5>
+                <p class="card-text">5</p> 
+                <a href="#" class="btn btn-outline-info">Monitorear</a>               
+            </div>
+        </div>
 
+        <div class="card">
+            <h5 class="card-header">Visitas</h5>
+            <div class="card-body">
+                <h5 class="card-title">Mirá las visitas desde el comienzo</h5>
+                <p class="card-text">3501</p>
+                <a href="#" class="btn btn-outline-warning">Ver historial</a>
+            </div>
+        </div>
+    </main>
 
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>feather.replace()</script>
+    <script src="../static/js/global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>

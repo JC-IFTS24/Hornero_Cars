@@ -1,8 +1,18 @@
-:root { /* :root es el selector del elemento raíz (html). */
-    --primary-color: #bf8850;/*Colores base para la pagina web guardados en variable */
-    --secondary-color: #5b300e; /* Estas variables se pueden reutilizar con var(--primary-color). */
+:root {
+    /* :root es el selector del elemento raíz (html). */
+    --primary-color: #bf8850;
+    /*Colores base para la pagina web guardados en variable */
+    --secondary-color: #5b300e;
+    /* Estas variables se pueden reutilizar con var(--primary-color). */
     --tercer-color: #3c2106;
 
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .dashboardAdmin {
@@ -11,19 +21,79 @@
     grid-template-rows: auto 1fr;
 }
 
+aside {
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+}
+
+.nav-item {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(27, 27, 228);
+}
+
+.contenido-principal {
+    /* El contenido principal abarca desde la segunda columna hasta el final (la cuarta línea de la cuadrícula) */
+    display: grid;
+    /* Ahora el main-content es un contenedor grid */
+    grid-column: 2 / span 2;
+    /* Abarca las dos últimas columnas (2fr y 2fr) */
+    grid-row: 1;
+    /* Contenido principal en la primera fila */
+    padding: 1.5rem;
+    /* Padding estándar para desktop */
+    background-color: #e9ecef;
+    grid-template-columns: 1fr 1fr;
+    /* Fuerza las tarjetas a mostrarse en dos columnas */
+
+}
+
+
 .card {
-    margin: 1em;
+    margin: 2em;
 }
 
 .card-header {
     background-color: var(--primary-color);
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: whitesmoke;
 }
 
-.card-title, .card-text {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+.card-title,
+.card-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-text {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.card a {
+    max-width: 100%;
+}
+
+/* Estilo para que los botones outline siempre tengan el borde visible y fondo transparente */
+/* Usamos !important para asegurar que sobrescriba los estilos de Bootstrap */
+.btn-outline-secondary {
+    border: 1px solid #6c757d !important; /* Color gris de Bootstrap secondary */
+    color: #212529 !important;
+}
+.btn-outline-success {
+    border: 1px solid #198754 !important; /* Color verde de Bootstrap success */
+    color: #212529 !important;
+}
+.btn-outline-info {
+    border: 1px solid #0dcaf0 !important; /* Color azul claro de Bootstrap info */
+    color: #212529 !important;
+}
+.btn-outline-warning {
+    border: 1px solid #ffc107 !important; /* Color amarillo de Bootstrap warning */
+    color: #212529 !important;
+}
+
+img {
+    width: 10em;
 }
 
 
