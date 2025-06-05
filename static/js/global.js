@@ -57,7 +57,7 @@ function iniciarSesion() {
     sessionStorage.setItem("usuarioActivo", JSON.stringify({
       userId: usuarioEncontrado.userId,
       rol: usuarioEncontrado.rol,
-      nombre: usuarioEncontrado.nombreCompleto,
+      nombreCompleto: usuarioEncontrado.nombreCompleto,
       email: usuarioEncontrado.email
     }));
     cerrarModal();
@@ -65,6 +65,7 @@ function iniciarSesion() {
     if (usuarioEncontrado.rol === "Administrador") {
       redireccionarAdminDashboard();
     } else {
+      redireccionarClienteDashboard()
       personalizarNav();
     }
     return;
@@ -113,7 +114,7 @@ function personalizarNav() {
           <div class="dropdown_Contenido">
             <a ></a>
             <a ></a>
-            <a ></a>
+            <a href="#" onclick="redireccionarAdminDashboard()" >"Dashboard"</a>
             <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
           </div>
         </li>
@@ -135,3 +136,9 @@ function redireccionarAdminDashboard() {
   let rootPath = "/" + pathParts[1];
   window.location.href = rootPath + "/templates/dashboardAdmin.html";
 } 
+
+function redireccionarClienteDashboard(){
+  let pathParts = window.location.pathname.split("/");
+  let rootPath = "/" + pathParts[1];
+  window.location.href = rootPath + "/templates/dashboardCliente.html";
+}

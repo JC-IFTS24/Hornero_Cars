@@ -1,0 +1,198 @@
+/* static/css/dashboardCliente.css */
+
+body.dashboard-page-body {
+    background-color: #f4f6f9;
+    padding-top: 56px; 
+    padding-bottom: 70px;
+    /* font-family es heredado de global.css */
+}
+
+#sidebarMenu {
+    background-color: #ffffff; 
+    height: calc(100vh - 56px); 
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 100; 
+    padding: 0; 
+    overflow-x: hidden;
+    overflow-y: auto; 
+    border-right: 1px solid #dee2e6;
+}
+
+.dashboard-nav-pills .nav-link {
+    color: #495057; 
+    border-radius: 0.3rem; /* Bordes un poco más redondeados */
+    padding: 0.75rem 1.25rem; 
+    margin: 0.2rem 0.5rem; 
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.dashboard-nav-pills .nav-link.active {
+    background-color: var(--primary-color-hornero); 
+    color: white;
+}
+
+.dashboard-nav-pills .nav-link:not(.active):hover {
+    background-color: #e9ecef; 
+    color: var(--primary-color-hornero);
+}
+
+.dashboard-nav-pills .nav-link i { 
+    width: 20px; 
+    text-align: center;
+    margin-right: 0.5rem; /* Espacio entre icono y texto */
+}
+
+main.col-md-9 { 
+    padding-top: 1.5rem; 
+}
+
+#dashboard-section-title {
+    color: #343a40;
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+.tab-content > .tab-pane {
+    background-color: #ffffff;
+    padding: 25px 30px; 
+    border-radius: 0.375rem; 
+    box-shadow: 0 0.1rem 0.3rem rgba(0,0,0,.06);
+}
+
+/* === CORRECCIÓN PARA EL LISTADO DE VEHÍCULOS === */
+#dashboard-contenedor-vehiculos.row {
+    display: flex !important;     
+    flex-wrap: wrap !important;   
+}
+
+/* Estilos para "Mi Cuenta" */
+#mi-cuenta-content .card {
+    border: 1px solid #e9ecef;
+    box-shadow: none; /* Sombra más sutil o ninguna si se prefiere limpieza */
+}
+#mi-cuenta-content .card-header {
+    background-color: #f8f9fa; 
+    color: #495057;
+    font-weight: 500;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.75rem 1.25rem;
+}
+#mi-cuenta-content label.form-label {
+    font-weight: 500; 
+    color: #495057;
+    margin-bottom: 0.3rem;
+    font-size: 0.875rem; 
+}
+#mi-cuenta-content input.form-control-sm {
+    font-size: 0.875rem;
+}
+#fieldsetMiCuenta:disabled input.form-control,
+#fieldsetMiCuenta:disabled select.form-select, 
+#fieldsetMiCuenta:disabled textarea.form-control { 
+    background-color: #e9ecef; 
+    opacity: 0.9; 
+    cursor: default; 
+}
+#cuentaEmail[readonly], #cuentaFechaRegistro[readonly] {
+    background-color: #e9ecef;
+    opacity: 0.9;
+}
+#miCuentaTituloSub { 
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary-color-hornero);
+}
+
+/* Estilos para "Hacer Reserva" (catálogo y configuración) */
+#hacer-reserva-content .lead {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+#dashboard-filtros-vehiculos { 
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+}
+.vehicle-card-dashboard { /* Estilo para las tarjetas de vehículos en el dashboard */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.vehicle-card-dashboard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,.12)!important;
+}
+.vehicle-card-dashboard img.card-img-top { 
+    border-bottom: 1px solid #f0f0f0;
+    height: 180px; 
+    object-fit: cover; 
+}
+.vehicle-card-dashboard .card-title {
+    font-weight: 600; /* Título de tarjeta un poco más bold */
+    color: #212529;
+    font-size: 1.05rem; /* Ligeramente más pequeño que el h5 por defecto */
+}
+.vehicle-card-dashboard .card-body .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.75rem; /* Padding del botón de reservar en tarjeta */
+}
+#dashboard-configuracion-reserva .card-header { 
+    background-color: var(--primary-color-hornero) !important; 
+    color: white !important;
+}
+#dashboard-configuracion-reserva h5 {
+    font-weight: 500;
+}
+#cotizacion-reserva { 
+    border: 1px dashed #adb5bd;
+    background-color: #f8f9fa !important;
+}
+#cotizacion-reserva #cotizacion-total {
+    font-size: 1.3rem;
+    color: #198754; 
+}
+
+/* Estilos para la sección de Inicio del Dashboard */
+#inicio-dashboard-content #saludoUsuario {
+    color: var(--secondary-color-hornero); 
+    font-weight: 300; 
+    font-size: 1.8rem;
+}
+.dashboard-action-card {
+    border: 1px solid #e0e0e0;
+}
+.dashboard-action-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Para alinear mejor el contenido verticalmente */
+    min-height: 220px; /* Altura mínima para las tarjetas de acción */
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.dashboard-action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15)!important;
+}
+.dashboard-action-card .btn {
+    margin-top: 1rem; 
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+}
+#carouselMarketing .carousel-item img {
+    border-radius: 0.375rem; 
+    max-height: 250px; 
+    object-fit: cover; 
+}
+
+/* Footer fijo abajo */
+footer.fixed-bottom { 
+    z-index: 1031; 
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color-hornero) !important; 
+}

@@ -4,7 +4,7 @@
         "rol": "Cliente",
         "nombreCompleto": "Gustavo Cerati",
         "email": "juan@mail.com",
-        "password": "1234",
+        "password": "12345",
         "telefono": "1122334455",
         "fechaNacimiento": "1959-07-11",
         "documentacion": {
