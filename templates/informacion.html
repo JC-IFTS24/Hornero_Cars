@@ -1,144 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hornero Cars</title>
+    <title>Información</title>
+    <link rel="stylesheet" href="../static/css/tarifas.css">
+
     <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <!--HEADER-->
     <header>
-        <!--NAV-->
+    <!--NAV-->
         <nav>
             <ul> <!-- Un navegador con listas, cuando hagamos el mapeo web seleccionamos cuales van y cuales sacar o agregar -->
                 <li id="imagen_Logo">
                     <a href="../index.html" >
-                        <img src="" height="110" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
+                        <img src="../static/img/horneroCarsBlanco2.png" height="95" alt="Hornero Cars"> <!-- Hay que hacer un logo de la empresa y ponerlo aca -->
                     </a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="nosotros">
                     <a href="nosotros.html">Nosotros</a>
-                    <div class="dropdown_Contenido">
-                        <a href="nosotros.html#nosotros">Sobre "Horneros Cars"</a>
+                    <div class="dropdown_Contenido" id="drop_nosotros">
+                        <a href="nosotros.html">Sobre "Horneros Cars"</a>
                         <a href="nosotros.html#oficinas">Oficinas</a>
                         <a href="nosotros.html#contacto">Contacto</a>
                     </div>
-                <li class="dropdown" >
+                </li>
+                <li class="dropdown" id="informacion">
                     <a href="informacion.html">Información</a>
                     <div class="dropdown_Contenido">
-                        <a href="#vehiculos">Vehiculos</a>
-                        <a href="#tarifas">Tarifas</a>
-                        <a href="#requisitos">Requisitos</a>
+                        <a href="vehiculos.html">Vehiculos</a>
+                        <a href="informacion">Tarifas</a>
+                        <a href="informacion.html#requisitos">Requisitos</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="reserva">
                     <a href="reserva.html">Hace tu reserva</a>
-                </li>
-                <!--Li vacio para poder jugar con el espacio en distintas medidas con display:none-->
-                <li class="dropdown"> 
-                    <a href=""></a>
-                </li>
+                </li>              
                 <!--MODAL link a js-->
-                <li class="dropdown">
-                    <a href="" class="sesion">Iniciar Sesion</a>
+                <li class="dropdown" id="sesion">
+                    <a onclick="abrirModal(event)" href="#" class="sesion">Iniciar Sesión</a>
                </li>
             </ul>
         </nav>
         <!-- MODAL --Aca puede ir un modal para poner contraseña y usuario al hacer click en iniciar sesion-->
+        <div id="modal-login" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <img src="../static/img/hornerofondoblanco.png" height="110" alt="logo">
+                <h2>Iniciar Sesión</h2>
+                <form>
+                    <div class="input-container">
+                        <i class="fas fa-user"></i>
+                        <input name="usuario" id="usuario" type="text" placeholder="Usuario" required>
+                    </div>
+                    <label class="sesionIncorrecta" id="usuarioIncorrecto">Usuario Incorrecto</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock"></i>
+                        <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña" required>
+                    </div>
+                        <label class="sesionIncorrecta" id="contraseñaIncorrecta">Contraseña Incorrecta</label>
+                        <button id="inciarSesionBtn" onclick="iniciarSesion()" type="button">Entrar</button>
+                    <div class="olvide">
+                    <a href="#">¿Olvidaste tu usuario o contraseña?</a>
+                    </div>
+                </form>
+            <div class="crear-cuenta">
+            ¿No tienes cuenta? 
+            <a href="registro.html">Crear una</a>
+            </div>
+            </div>
+        </div>
     </header>
-    <!--MAIN section banner index-->
-    <main>  
-        <section id="vehiculos" aria-label="Hornero Cars"> <!-- Aca para poner una foto de presentacion entre el nav y el footer -->
-            <h2>Vehiculos</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Suscipit sed tempore id. Placeat, deserunt. 
-                Provident eum doloribus distinctio voluptas 
-                natus excepturi culpa laudantium in adipisci 
-                dignissimos? Excepturi pariatur labore recusandae?</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
+<!-- INFORMACION -->
+    <!-- Tarifas -->
+    <main>
+        <h1>Tarifas</h1>
+        <section class="tarifas">
+            <div class="planas">
+                <img src="" alt="">
+                <h2>Básico</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur et, ducimus assumenda accusamus dolorem consectetur nisi repellat, </p>
+                <button>Ver Detalles</button>
+            </div>
+            <div class="planas">
+                <img src="" alt="">
+                <h2>Medio</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur et, ducimus assumenda accusamus dolorem consectetur nisi repellat, </p>
+                <button>Ver Detalles</button>
+            </div>
+            <div class="planas">
+                <img src="" alt="">
+                <h2>Grandes</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur et, ducimus assumenda accusamus dolorem consectetur nisi repellat, </p>
+                <button>Ver Detalles</button>
+            </div>
         </section>
-        <section id="tarifas">
-            <h2>Tarifas</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                 Quos a exercitationem totam et labore iste, est ullam,
-                  magni hic, recusandae cum expedita temporibus vel autem
-                   eveniet fugiat illo impedit. Maiores!</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <h1>Ofertas</h1>
+        <section class="tarifas">
+            <div class="ofertas">
+                <img src="" alt="">
+                <h2>Turismo</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur et, ducimus assumenda accusamus dolorem consectetur nisi repellat, </p>
+                <button>Aprovechar Oferta</button>
+            </div>
+            <div class="ofertas">
+                <img src="" alt="">
+                <h2>Seleccionados</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur et, ducimus assumenda accusamus dolorem consectetur nisi repellat, </p>
+                <button>Aprovechar Oferta</button>
+            </div>
+            <div class="ofertas">
+                <img src="" alt="">
+                <h2>Verano 2025</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur et, ducimus assumenda accusamus dolorem consectetur nisi repellat, </p>
+                <button>Aprovechar Oferta</button>
+            </div>
+            <div class="ofertas">
+                <img src="" alt="">
+                <h2>Fiestas</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur et, ducimus assumenda accusamus dolorem consectetur nisi repellat, </p>
+                <button>Aprovechar Oferta</button>
+            </div>
         </section>
-        <section id="requisitos">
-            <h2>Requisitos</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Totam tempora eaque error in nobis, voluptatem odio quos 
-                necessitatibus doloribus earum praesentium ipsa voluptatibus 
-                aliquam placeat, facere neque magni deserunt quae?</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
+    <!-- Requisitos -->
+     <div>
+   <section id="requisitos" class="mb-5">
+        <h2 class="text-primary">Requisitos para Alquilar un Auto</h2>
+        <p>Para alquilar un vehículo con HORNERO CARS, necesitarás lo siguiente:</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Edad mínima: 21 años (para algunas categorías, 25 años).
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Licencia de conducir vigente con al menos 1 año de antigüedad.
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Documento de identidad (DNI o pasaporte).
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Tarjeta de crédito a nombre del titular de la reserva para el depósito de garantía.
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Confirmación de reserva (impresa o digital).
+          </li>
+        </ul>
+        <p class="mt-3">
+          Si tienes alguna duda sobre los requisitos, no dudes en
+          <a href="nosotros.html#contacto">contactarnos</a>.
+        </p>
         </section>
+        </div>
     </main>
 
-    <!--FOOTER -->
+   <!--FOOTER -->
     <footer>
-
+        <div class="footer-contenido">
+            <div class="footer-seccion">
+                <a href="nosotros.html">
+                    <h3>Sobre Nosotros</h3>
+                    <p>Información sobre "HorneroCars" y nuestra flota.</p>
+                </a>
+            </div>
+            <div class="footer-seccion">
+                <h3>Enlaces Útiles</h3>
+                <ul>
+                    <li><a href="nosotros.html">Contáctanos</a></li>
+                    <li><a href="reserva.html">Reservas</a></li>
+                    <li><a href="nosotros.html#destinoUbicacion">Oficinas</a></li>
+                </ul>
+            </div>
+            <div class="footer-seccion footer-social">
+                <h3>Síguenos</h3>
+                <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-boton">
+            <p>&copy; HorneroCars. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
     <!--SCRIPT links-->
-    <script src=""></script>
-    
+    <script src="../static/js/informacion.js"></script>
+        <script src="../static/js/global.js"></script>
 </body>
 </html>
